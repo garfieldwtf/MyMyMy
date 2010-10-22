@@ -1,0 +1,75 @@
+digraph G {
+	overlap=false;
+	splines=true;
+	node [fontname="Helvetica",fontsize=9];
+	edge [fontname="Helvetica",fontsize=8];
+	ranksep=0.1;
+	nodesep=0.1;
+	_schema_info [shape="plaintext", label="2010", fontname="Helvetica",fontsize=8];
+	"Attachment" [label="{Attachment|id : integer[11]\nmodel : string[20]\nforeign_key : integer[11]\nfile : string[255]\nfilename : string[255]\nchecksum : string[255]\nfield : string[255]\ntype : string[50]\nsize : integer[11]\ncreated : datetime\nmodified : datetime\nprivate : boolean[1]\n}" shape="record"];
+	"Category" [label="{Category|id : integer[11]\nname : string[100]\ngroup_id : integer[11]\n}" shape="record"];
+	"Client" [label="{Client|id : integer[11]\nname : string[100]\ngroup_id : integer[11]\n}" shape="record"];
+	"Comment" [label="{Comment|id : integer[11]\nmodel : string[20]\nforeign_key : integer[11]\ndescription : text\nuser_id : integer[11]\ncreated : datetime\nupdated : datetime\ngroup2_id : integer[11]\n}" shape="record"];
+	"Grade" [label="{Grade|id : integer[11]\nrank : string[100]\ngrade : string[100]\n}" shape="record"];
+	"Group2" [label="{Group2|id : integer[11]\nname : string[30]\ndescription : string[30]\ndeleted : boolean[1]\ndeleted_date : datetime\n}" shape="record"];
+	"Group2sUser" [label="{Group2sUser|id : integer[11]\ngroup2_id : integer[11]\nuser_id : integer[11]\n}" shape="record"];
+	"Group" [label="{Group|id : integer[11]\nname : string[30]\ndescription : string[30]\ndeleted : boolean[1]\ndeleted_date : datetime\nparent_id : integer[11]\nlft : integer[11]\nrght : integer[11]\ngroup_name : string[30]\n}" shape="record"];
+	"Implementor" [label="{Implementor|id : integer[11]\ntask_id : integer[11]\nassign_as : integer[11]\nmodel : string[20]\nforeign_key : integer[11]\n}" shape="record"];
+	"Meeting" [label="{Meeting|id : integer[11]\nname : string[100]\ngroup_id : integer[11]\n}" shape="record"];
+	"Membership" [label="{Membership|id : integer[11]\ngroup_id : integer[11]\nmodel : string[20]\nforeign_key : integer[11]\nadmin : boolean[1]\nhead : boolean[1]\n}" shape="record"];
+	"Notification" [label="{Notification|id : integer[11]\ntask_id : integer[11]\ntype : string[20]\nmessage_title : string[255]\nnotification_date : datetime\nnotification_sent : boolean[1]\nmessage : text\nto : text\nrecipient : text\ninfo : text\n}" shape="record"];
+	"Project" [label="{Project|id : integer[11]\nname : string[100]\ngroup_id : integer[11]\n}" shape="record"];
+	"Reminder" [label="{Reminder|id : integer[11]\ntask_id : integer[11]\nuser_id : integer[11]\nnote : text\nremind_date : datetime\nrepeated : boolean[1]\nactive : boolean[1], default: \"1\"\nbefore : integer[11]\n}" shape="record"];
+	"Role" [label="{Role|id : integer[11]\nname : string[20]\ndescription : text\ndeleted : boolean[1]\ndeleted_date : datetime\n}" shape="record"];
+	"Scheme" [label="{Scheme|id : integer[11]\nname : string[50]\n}" shape="record"];
+	"Status" [label="{Status|id : integer[11]\ntask_id : integer[11]\nupdater : integer[11]\ntask_status : string[50]\npercent : string[100]\ndescription : text\nstatus_date : datetime\nclosed : boolean[1]\ndate_closed : datetime\ndeleted : boolean[1]\ndeleted_date : datetime\ncreated : datetime\nupdated : datetime\nuser_id : integer[11]\ngroup2_id : integer[11]\n}" shape="record"];
+	"Taskinfo" [label="{Taskinfo|id : integer[11]\nmodel : string[20]\nforeign_key : integer[11]\ntask_id : integer[11]\n}" shape="record"];
+	"Task" [label="{Task|id : integer[11]\nref_no : string[255]\npriority : integer[11]\ntask_name : string[500]\ntask_desc : text\nstart_date : datetime\nend_date : datetime\ndeleted : boolean[1]\ncreated : date\nupdated : date\ngroup_id : integer[11]\nparent_id : integer[11]\n}" shape="record"];
+	"Template" [label="{Template|id : integer[11]\nmodel : string[20]\nforeign_key : integer[11]\ntype : string[20]\ntitle : string[200]\ndescription : string[255]\ntemplate : text\n}" shape="record"];
+	"Title" [label="{Title|id : integer[11]\nlong_name : string[100]\ncreated : datetime\nupdated : datetime\n}" shape="record"];
+	"User" [label="{User|id : integer[11]\nusername : string[20]\npassword : string[200]\nsuperuser : boolean[1]\ngrade_id : integer[11]\njob_title : string[50]\nname : string[80]\nemail : string[150]\ncc : string[150]\ntelephone : string[30]\nmobile : string[30]\nfax : string[30]\naddress : text\ntitle_id : integer[11]\ndeleted : boolean[1]\ndeleted_date : datetime\nbahagian : string[255]\ncreated : datetime\nupdated : datetime\nlocked : datetime\nscheme_id : integer[11]\n}" shape="record"];
+	"Category" -> "Group" [label="group_id"]
+	"Client" -> "Group" [label="group_id"]
+	"Comment" -> "User" [label="user_id"]
+	"Comment" -> "Group2" [label="group2_id"]
+	"Group2sUser" -> "Group2" [label="group2_id"]
+	"Group2sUser" -> "User" [label="user_id"]
+	"Implementor" -> "Task" [label="task_id"]
+	"Meeting" -> "Group" [label="group_id"]
+	"Membership" -> "Group" [label="group_id"]
+	"Notification" -> "Task" [label="task_id"]
+	"Project" -> "Group" [label="group_id"]
+	"Reminder" -> "Task" [label="task_id"]
+	"Reminder" -> "User" [label="user_id"]
+	"Status" -> "Task" [label="task_id"]
+	"Status" -> "User" [label="user_id"]
+	"Status" -> "Group2" [label="group2_id"]
+	"Taskinfo" -> "Task" [label="task_id"]
+	"Task" -> "Group" [label="group_id"]
+	"User" -> "Grade" [label="grade_id"]
+	"User" -> "Title" [label="title_id"]
+	"User" -> "Scheme" [label="scheme_id"]
+	"Membership" -> "User" [label="Membership->User"]
+	"Membership" -> "Group2" [label="Membership->Group2"]
+	"Membership" -> "Group" [label="Membership->Group"]
+	"Status" -> "Task" [label="Status->Task"]
+	"Status" -> "User" [label="Status->User"]
+	"Task" -> "Group" [label="Task->Group"]
+	"Implementor" -> "Task" [label="Implementor->Task"]
+	"Notification" -> "Task" [label="Notification->Task"]
+	"Comment" -> "Task" [label="Comment->Task"]
+	"User" -> "Grade" [label="User->Grade"]
+	"User" -> "Title" [label="User->Title"]
+	"User" -> "Scheme" [label="User->Scheme"]
+	"Comment" -> "User" [label="Comment->User"]
+	"Implementor" -> "User" [label="Implementor->User"]
+	"Group2sUser" -> "User" [label="Group2sUser->User"]
+	"Implementor" -> "Group2" [label="Implementor->Group2"]
+	"Implementor" -> "Role" [label="Implementor->Role"]
+	"Group2sUser" -> "Group2" [label="Group2sUser->Group2"]
+	"Taskinfo" -> "Task" [label="Taskinfo->Task"]
+	"Taskinfo" -> "Client" [label="Taskinfo->Client"]
+	"Taskinfo" -> "Category" [label="Taskinfo->Category"]
+	"Taskinfo" -> "Meeting" [label="Taskinfo->Meeting"]
+	"Taskinfo" -> "Project" [label="Taskinfo->Project"]
+}

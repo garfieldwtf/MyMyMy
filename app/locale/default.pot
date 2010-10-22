@@ -1,0 +1,1695 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from file: Revision: 6311 /app/views/layouts/install.ctp
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2010-10-22 08:54+0800\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: /app_controller.php:63
+#: /controllers/users_controller.php:127
+msgid "Invalid username or password"
+msgstr ""
+
+#: /app_controller.php:75
+#: /controllers/users_controller.php:144
+msgid "You have entered wrong code"
+msgstr ""
+
+#: /app_controller.php:325
+msgid "You have entered the wrong url"
+msgstr ""
+
+#: /controllers/comments_controller.php:55
+#: /controllers/grades_controller.php:46;78
+#: /controllers/group2s_controller.php:46;73
+#: /controllers/groups_controller.php:58;75
+#: /controllers/memberships_controller.php:60;85
+#: /controllers/reminders_controller.php:52
+#: /controllers/schemes_controller.php:47;62
+#: /controllers/statuses_controller.php:73
+#: /controllers/systems_controller.php:57;132
+#: /controllers/tasks_controller.php:241;256
+#: /controllers/templates_controller.php:48
+#: /controllers/titles_controller.php:37;52
+#: /controllers/users_controller.php:62;94;181
+msgid "The %s has been saved"
+msgstr ""
+
+#: /controllers/comments_controller.php:55;58
+#: /views/comments/add.ctp:30
+#: /views/tasks/view.ctp:53;316
+msgid "Comment"
+msgstr ""
+
+#: /controllers/comments_controller.php:58
+#: /controllers/grades_controller.php:49;81
+#: /controllers/group2s_controller.php:59;76
+#: /controllers/groups_controller.php:61;78
+#: /controllers/memberships_controller.php:63;88
+#: /controllers/reminders_controller.php:55
+#: /controllers/schemes_controller.php:50;65
+#: /controllers/statuses_controller.php:76
+#: /controllers/systems_controller.php:59
+#: /controllers/templates_controller.php:54
+#: /controllers/titles_controller.php:40;55
+#: /controllers/users_controller.php:76;97;184
+msgid "The %s could not be saved. "
+msgstr ""
+
+#: /controllers/comments_controller.php:58
+#: /controllers/grades_controller.php:49;81
+#: /controllers/group2s_controller.php:59;76;94
+#: /controllers/groups_controller.php:61;78
+#: /controllers/memberships_controller.php:63;88
+#: /controllers/reminders_controller.php:55
+#: /controllers/schemes_controller.php:50;65;82
+#: /controllers/statuses_controller.php:76
+#: /controllers/systems_controller.php:59
+#: /controllers/templates_controller.php:54
+#: /controllers/titles_controller.php:40;55
+#: /controllers/users_controller.php:76;97;184
+msgid "Please try again."
+msgstr ""
+
+#: /controllers/grades_controller.php:46;49;57;78;81;91;95
+#: /views/elements/Userdetail.ctp:27
+#: /views/grades/add.ctp:27;32
+#: /views/grades/edit.ctp:27;33
+#: /views/grades/index.ctp:31
+#: /views/users/add.ctp:41
+#: /views/users/edit.ctp:35
+#: /views/users/profile.ctp:44
+msgid "Grade"
+msgstr ""
+
+#: /controllers/grades_controller.php:57;91
+#: /controllers/group2s_controller.php:36;68;87
+#: /controllers/groups_controller.php:68;92
+#: /controllers/memberships_controller.php:38;76;94
+#: /controllers/schemes_controller.php:37;57;75
+#: /controllers/tasks_controller.php:106;166
+#: /controllers/templates_controller.php:43
+#: /controllers/titles_controller.php:47;65
+#: /controllers/users_controller.php:42;89;111;176
+msgid "Invalid %s."
+msgstr ""
+
+#: /controllers/grades_controller.php:95
+#: /controllers/group2s_controller.php:91
+#: /controllers/groups_controller.php:97
+#: /controllers/memberships_controller.php:99
+#: /controllers/schemes_controller.php:79
+#: /controllers/tasks_controller.php:170
+#: /controllers/titles_controller.php:69
+#: /controllers/users_controller.php:115
+msgid "%s deleted"
+msgstr ""
+
+#: /controllers/group2s_controller.php:36;46;59;68;73;76;87;91;94
+#: /views/group2s/add.ctp:37;56;58
+#: /views/group2s/edit.ctp:35;51
+#: /views/group2s/index.ctp:29
+#: /views/group2s/view.ctp:24
+#: /views/memberships/add.ctp:28;35;36
+#: /views/memberships/index.ctp:40;42
+msgid "Group"
+msgstr ""
+
+#: /controllers/group2s_controller.php:94
+#: /controllers/schemes_controller.php:82
+msgid "The %s could not be deleted. "
+msgstr ""
+
+#: /controllers/groups_controller.php:58;61;68;75;78;92;97
+#: /views/elements/adminmenu.ctp:45
+#: /views/groups/add.ctp:31
+#: /views/groups/edit.ctp:27
+#: /views/tasks/copy.ctp:30
+#: /views/tasks/keyword.ctp:48
+msgid "Committee"
+msgstr ""
+
+#: /controllers/installers_controller.php:324
+#: /views/users/add.ctp:30
+#: /views/users/login.ctp:33
+msgid "Username"
+msgstr ""
+
+#: /controllers/installers_controller.php:324
+#: /controllers/users_controller.php:243;282
+#: /views/users/login.ctp:34
+msgid "Password"
+msgstr ""
+
+#: /controllers/installers_controller.php:334
+#: /views/elements/Group2detail.ctp:24
+#: /views/elements/Userdetail.ctp:24
+#: /views/group2s/view.ctp:26
+#: /views/groups/add.ctp:33;34
+#: /views/groups/edit.ctp:30;31
+#: /views/titles/add.ctp:28
+#: /views/titles/edit.ctp:29
+#: /views/titles/index.ctp:38
+msgid "Name"
+msgstr ""
+
+#: /controllers/installers_controller.php:334
+#: /views/users/add.ctp:57
+#: /views/users/edit.ctp:51
+#: /views/users/forgotpass.ctp:30
+#: /views/users/forgotuser.ctp:32
+#: /views/users/profile.ctp:55
+msgid "Email"
+msgstr ""
+
+#: /controllers/memberships_controller.php:38;60;63;76;85;88;94;99
+#: /views/users/add.ctp:79
+#: /views/users/edit.ctp:74
+msgid "Membership"
+msgstr ""
+
+#: /controllers/reminders_controller.php:52;55
+#: /views/reminders/add.ctp:27
+#: /views/tasks/view.ctp:58;113
+msgid "Reminder"
+msgstr ""
+
+#: /controllers/schemes_controller.php:37;47;50;57;62;65;75;79;82
+#: /views/schemes/add.ctp:26;29
+#: /views/schemes/edit.ctp:26;30
+#: /views/schemes/index.ctp:31;39
+msgid "Scheme"
+msgstr ""
+
+#: /controllers/statuses_controller.php:73;76
+#: /views/statuses/add.ctp:56;63
+#: /views/statuses/index.ctp:29
+#: /views/tasks/keyword.ctp:50
+#: /views/tasks/sorting.ctp:31
+#: /views/tasks/view.ctp:48
+msgid "Status"
+msgstr ""
+
+#: /controllers/systems_controller.php:57;59
+#: /views/systems/setting.ctp:28
+msgid "Global Settings"
+msgstr ""
+
+#: /controllers/systems_controller.php:132
+msgid "Logo"
+msgstr ""
+
+#: /controllers/systems_controller.php:142
+msgid "Please correct errors below."
+msgstr ""
+
+#: /controllers/systems_controller.php:153
+msgid "Database Structure had been updated to latest copy"
+msgstr ""
+
+#: /controllers/systems_controller.php:157
+msgid "The system language had been changed."
+msgstr ""
+
+#: /controllers/tasks_controller.php:106;166;170
+#: /views/comments/add.ctp:44
+#: /views/elements/taskdetail.ctp:29
+#: /views/reminders/add.ctp:43
+#: /views/statuses/add.ctp:85
+#: /views/statuses/index.ctp:85
+#: /views/tasks/additional.ctp:25
+#: /views/tasks/basic.ctp:24
+#: /views/tasks/copy.ctp:35
+#: /views/tasks/imp.ctp:24
+#: /views/tasks/view.ctp:28
+msgid "Task"
+msgstr ""
+
+#: /controllers/tasks_controller.php:241
+msgid "Basic information of Task"
+msgstr ""
+
+#: /controllers/tasks_controller.php:256
+msgid "Additional info of Task"
+msgstr ""
+
+#: /controllers/tasks_controller.php:292
+msgid "The Task had been assigned"
+msgstr ""
+
+#: /controllers/tasks_controller.php:413
+msgid "The Task has been copied"
+msgstr ""
+
+#: /controllers/templates_controller.php:43;48;54
+#: /views/templates/edit.ctp:31
+#: /views/templates/index.ctp:51
+msgid "Template"
+msgstr ""
+
+#: /controllers/templates_controller.php:70
+msgid "Template had been retrieved"
+msgstr ""
+
+#: /controllers/titles_controller.php:37;40;47;52;55;65;69
+#: /views/elements/adminmenu.ctp:59
+#: /views/templates/guide.ctp:49
+#: /views/templates/index.ctp:49
+#: /views/titles/add.ctp:26
+#: /views/titles/edit.ctp:26
+#: /views/titles/index.ctp:30
+msgid "Title"
+msgstr ""
+
+#: /controllers/users_controller.php:42;62;76;89;94;97;111;115;176
+#: /views/memberships/add.ctp:26;39;40
+#: /views/memberships/index.ctp:36;38
+#: /views/users/add.ctp:27;77
+#: /views/users/edit.ctp:27;72
+#: /views/users/index.ctp:29
+#: /views/users/view.ctp:24
+msgid "User"
+msgstr ""
+
+#: /controllers/users_controller.php:121
+#: /views/users/login.ctp:31;43
+msgid "Login"
+msgstr ""
+
+#: /controllers/users_controller.php:133;140
+msgid "Your account is locked, please contact admin or superadmin to unlock"
+msgstr ""
+
+#: /controllers/users_controller.php:164
+msgid "Successfully logged out"
+msgstr ""
+
+#: /controllers/users_controller.php:181;184
+msgid "profile"
+msgstr ""
+
+#: /controllers/users_controller.php:207
+msgid "Your request has been generated. Please check your email."
+msgstr ""
+
+#: /controllers/users_controller.php:211;225
+msgid "The email is not registered in the system."
+msgstr ""
+
+#: /controllers/users_controller.php:222
+msgid "Your username has been sent to your email."
+msgstr ""
+
+#: /controllers/users_controller.php:241;284
+msgid "Your password does not match."
+msgstr ""
+
+#: /controllers/users_controller.php:243;282
+#: /views/users/add.ctp:30
+msgid "minimum length should be 4."
+msgstr ""
+
+#: /controllers/users_controller.php:248;290
+msgid "Your password has been changed"
+msgstr ""
+
+#: /controllers/users_controller.php:280
+msgid "Your old password is invalid."
+msgstr ""
+
+#: /controllers/users_controller.php:306;320
+msgid "Password for %s has been reset and emailed"
+msgstr ""
+
+#: /controllers/users_controller.php:324
+msgid "Account for %s has been unlocked"
+msgstr ""
+
+#: /controllers/components/multi_file.php:45
+msgid "You don't have permission to view this file"
+msgstr ""
+
+#: /models/notification.php:149
+msgid "you"
+msgstr ""
+
+#: /models/notification.php:150
+msgid "your"
+msgstr ""
+
+#: /views/comments/add.ctp:30
+#: /views/elements/adminmenu.ctp:45
+#: /views/grades/add.ctp:27
+#: /views/group2s/add.ctp:37
+#: /views/groups/add.ctp:31
+#: /views/groups/mainpage.ctp:79
+#: /views/reminders/add.ctp:27
+#: /views/schemes/add.ctp:26
+#: /views/statuses/add.ctp:56
+#: /views/titles/add.ctp:26
+#: /views/users/add.ctp:27
+msgid "Add %s"
+msgstr ""
+
+#: /views/comments/add.ctp:36
+#: /views/tasks/view.ctp:278
+msgid "By"
+msgstr ""
+
+#: /views/comments/add.ctp:42
+#: /views/elements/unlock.ctp:35
+#: /views/grades/add.ctp:47
+#: /views/grades/edit.ctp:48
+#: /views/group2s/add.ctp:53
+#: /views/group2s/edit.ctp:49
+#: /views/groups/add.ctp:46
+#: /views/groups/edit.ctp:41
+#: /views/memberships/add.ctp:48
+#: /views/reminders/add.ctp:41
+#: /views/schemes/add.ctp:33
+#: /views/schemes/edit.ctp:34
+#: /views/statuses/add.ctp:84
+#: /views/systems/logo.ctp:41
+#: /views/systems/setting.ctp:49
+#: /views/tasks/additional.ctp:48
+#: /views/tasks/basic.ctp:50
+#: /views/tasks/copy.ctp:33
+#: /views/tasks/imp.ctp:84
+#: /views/templates/edit.ctp:42
+#: /views/titles/add.ctp:33
+#: /views/titles/edit.ctp:34
+#: /views/users/add.ctp:74
+#: /views/users/changepassword.ctp:48
+#: /views/users/edit.ctp:69
+#: /views/users/profile.ctp:71
+msgid "Save"
+msgstr ""
+
+#: /views/comments/add.ctp:44
+#: /views/grades/add.ctp:49
+#: /views/grades/edit.ctp:50
+#: /views/group2s/add.ctp:56;58
+#: /views/group2s/edit.ctp:51
+#: /views/groups/add.ctp:48
+#: /views/groups/edit.ctp:43
+#: /views/memberships/add.ctp:50
+#: /views/memberships/view.ctp:72
+#: /views/reminders/add.ctp:43
+#: /views/schemes/add.ctp:34
+#: /views/schemes/edit.ctp:35
+#: /views/statuses/add.ctp:85
+#: /views/statuses/index.ctp:85
+#: /views/tasks/copy.ctp:35
+#: /views/titles/add.ctp:35
+#: /views/titles/edit.ctp:36
+#: /views/users/add.ctp:77;79
+#: /views/users/edit.ctp:72;74
+msgid "Go Back to \"%s\""
+msgstr ""
+
+#: /views/comments/add.ctp:44
+#: /views/reminders/add.ctp:43
+#: /views/statuses/add.ctp:85
+#: /views/statuses/index.ctp:85
+#: /views/tasks/copy.ctp:35
+msgid "%s View"
+msgstr ""
+
+#: /views/elements/Group2detail.ctp:25
+#: /views/elements/taskdetail.ctp:45
+#: /views/group2s/view.ctp:27
+#: /views/tasks/additional.ctp:40
+#: /views/tasks/keyword.ctp:45
+#: /views/tasks/view.ctp:232
+#: /views/templates/index.ctp:50
+msgid "Description"
+msgstr ""
+
+#: /views/elements/Userdetail.ctp:25
+#: /views/users/add.ctp:50
+#: /views/users/edit.ctp:45
+#: /views/users/profile.ctp:39
+msgid "Post"
+msgstr ""
+
+#: /views/elements/Userdetail.ctp:26
+#: /views/users/add.ctp:51
+#: /views/users/edit.ctp:46
+#: /views/users/profile.ctp:40
+msgid "Section/Division"
+msgstr ""
+
+#: /views/elements/Userdetail.ctp:28
+msgid "E-mail"
+msgstr ""
+
+#: /views/elements/Userdetail.ctp:29
+msgid "Address"
+msgstr ""
+
+#: /views/elements/Userdetail.ctp:30
+msgid "Telephone"
+msgstr ""
+
+#: /views/elements/Userdetail.ctp:31
+msgid "Mobile"
+msgstr ""
+
+#: /views/elements/Userdetail.ctp:32
+msgid "Fax"
+msgstr ""
+
+#: /views/elements/adminmenu.ctp:30
+msgid "C o n t r o l &nbsp;&nbsp; P a n e l"
+msgstr ""
+
+#: /views/elements/adminmenu.ctp:38;52;59;66;73
+msgid "Manage"
+msgstr ""
+
+#: /views/elements/adminmenu.ctp:38;52
+msgid "%s And %s"
+msgstr ""
+
+#: /views/elements/adminmenu.ctp:38;40
+#: /views/layouts/tab.ctp:51
+msgid "Users"
+msgstr ""
+
+#: /views/elements/adminmenu.ctp:38
+#: /views/layouts/tab.ctp:46;52
+#: /views/memberships/view.ctp:41
+#: /views/tasks/imp.ctp:80
+msgid "Groups"
+msgstr ""
+
+#: /views/elements/adminmenu.ctp:47
+#: /views/users/view.ctp:28
+msgid "Committees"
+msgstr ""
+
+#: /views/elements/adminmenu.ctp:52;54
+#: /views/grades/add.ctp:49
+#: /views/grades/edit.ctp:50
+#: /views/grades/index.ctp:28
+#: /views/layouts/tab.ctp:48
+msgid "Grades"
+msgstr ""
+
+#: /views/elements/adminmenu.ctp:52
+#: /views/schemes/add.ctp:34
+#: /views/schemes/edit.ctp:35
+msgid "Schemes"
+msgstr ""
+
+#: /views/elements/adminmenu.ctp:61
+#: /views/titles/add.ctp:35
+#: /views/titles/edit.ctp:36
+#: /views/titles/index.ctp:29
+msgid "Titles"
+msgstr ""
+
+#: /views/elements/adminmenu.ctp:66;68
+#: /views/groups/mainpage.ctp:83
+#: /views/templates/index.ctp:28
+msgid "Email Templates"
+msgstr ""
+
+#: /views/elements/adminmenu.ctp:73;75
+msgid "Systems"
+msgstr ""
+
+#: /views/elements/calendar.ctp:41
+msgid "January"
+msgstr ""
+
+#: /views/elements/calendar.ctp:42
+msgid "February"
+msgstr ""
+
+#: /views/elements/calendar.ctp:43
+msgid "March"
+msgstr ""
+
+#: /views/elements/calendar.ctp:44
+msgid "April"
+msgstr ""
+
+#: /views/elements/calendar.ctp:45
+msgid "May"
+msgstr ""
+
+#: /views/elements/calendar.ctp:46
+msgid "June"
+msgstr ""
+
+#: /views/elements/calendar.ctp:47
+msgid "July"
+msgstr ""
+
+#: /views/elements/calendar.ctp:48
+msgid "August"
+msgstr ""
+
+#: /views/elements/calendar.ctp:49
+msgid "September"
+msgstr ""
+
+#: /views/elements/calendar.ctp:50
+msgid "October"
+msgstr ""
+
+#: /views/elements/calendar.ctp:51
+msgid "November"
+msgstr ""
+
+#: /views/elements/calendar.ctp:52
+msgid "December"
+msgstr ""
+
+#: /views/elements/calendar.ctp:56
+msgid "Sunday"
+msgstr ""
+
+#: /views/elements/calendar.ctp:57
+msgid "Monday"
+msgstr ""
+
+#: /views/elements/calendar.ctp:58
+msgid "Tuesday"
+msgstr ""
+
+#: /views/elements/calendar.ctp:59
+msgid "Wednesday"
+msgstr ""
+
+#: /views/elements/calendar.ctp:60
+msgid "Thrusday"
+msgstr ""
+
+#: /views/elements/calendar.ctp:61
+msgid "Friday"
+msgstr ""
+
+#: /views/elements/calendar.ctp:62
+msgid "Saturday"
+msgstr ""
+
+#: /views/elements/calendar.ctp:117
+msgid "Legend"
+msgstr ""
+
+#: /views/elements/calendar.ctp:120
+msgid "Start"
+msgstr ""
+
+#: /views/elements/calendar.ctp:121
+msgid "Deadline"
+msgstr ""
+
+#: /views/elements/calendar.ctp:122
+msgid "High Priority"
+msgstr ""
+
+#: /views/elements/globalsetting.ctp:31
+#: /views/systems/setting.ctp:38
+msgid "SMTP Host"
+msgstr ""
+
+#: /views/elements/globalsetting.ctp:33
+#: /views/systems/setting.ctp:39
+msgid "SMTP Port"
+msgstr ""
+
+#: /views/elements/globalsetting.ctp:34
+#: /views/systems/setting.ctp:40
+msgid "SMTP Username"
+msgstr ""
+
+#: /views/elements/globalsetting.ctp:35
+#: /views/systems/setting.ctp:41
+msgid "SMTP Password"
+msgstr ""
+
+#: /views/elements/globalsetting.ctp:38
+#: /views/systems/setting.ctp:42
+msgid "Sendmail Path"
+msgstr ""
+
+#: /views/elements/globalsetting.ctp:46
+msgid "Agency Details"
+msgstr ""
+
+#: /views/elements/globalsetting.ctp:56
+msgid "Email Settings"
+msgstr ""
+
+#: /views/elements/globalsetting.ctp:60
+msgid "Email Sender"
+msgstr ""
+
+#: /views/elements/globalsetting.ctp:61
+msgid "Email(From)"
+msgstr ""
+
+#: /views/elements/globalsetting.ctp:68
+msgid "Global settings"
+msgstr ""
+
+#: /views/elements/globalsetting.ctp:72
+msgid "Number of minutes the member will be locked after false login for 6 times"
+msgstr ""
+
+#: /views/elements/ical_link.ctp:25
+#: /views/tasks/calendar.ctp:28
+msgid "Export iCal"
+msgstr ""
+
+#: /views/elements/ical_link.ctp:30
+msgid "Please use the following address to access this calendar from other applications. You can copy and paste this into any calendar product that supports the iCal format."
+msgstr ""
+
+#: /views/elements/ical_link.ctp:38
+#: /views/elements/unlock.ctp:37
+#: /views/systems/logo.ctp:42
+#: /views/systems/setting.ctp:50
+#: /views/tasks/keyword.ctp:30
+#: /views/templates/edit.ctp:44
+#: /views/users/changepassword.ctp:49
+#: /views/users/forcechangepassword.ctp:48
+#: /views/users/forgotpass.ctp:36
+#: /views/users/forgotuser.ctp:37
+#: /views/users/profile.ctp:72
+msgid "Cancel"
+msgstr ""
+
+#: /views/elements/menubar.ctp:29
+#: /views/tasks/basic.ctp:40
+msgid "Register Task"
+msgstr ""
+
+#: /views/elements/menubar.ctp:30
+msgid "Upcoming Deadlines"
+msgstr ""
+
+#: /views/elements/menubar.ctp:31
+msgid "Previous Deadlines"
+msgstr ""
+
+#: /views/elements/menubar.ctp:32
+msgid "Outstanding Tasks"
+msgstr ""
+
+#: /views/elements/taskbar.ctp:27;27
+msgid "Basic"
+msgstr ""
+
+#: /views/elements/taskbar.ctp:33;33
+#: /views/tasks/view.ctp:38
+msgid "Assign Task"
+msgstr ""
+
+#: /views/elements/taskbar.ctp:39;39
+msgid "Additional Info"
+msgstr ""
+
+#: /views/elements/taskdetail.ctp:31
+#: /views/tasks/keyword.ctp:49
+#: /views/tasks/sorting.ctp:30
+#: /views/tasks/view.ctp:211
+msgid "Priority"
+msgstr ""
+
+#: /views/elements/taskdetail.ctp:34
+#: /views/tasks/basic.ctp:45
+#: /views/tasks/keyword.ctp:76
+#: /views/tasks/sorting.ctp:61
+#: /views/tasks/view.ctp:216
+msgid "High"
+msgstr ""
+
+#: /views/elements/taskdetail.ctp:36
+#: /views/tasks/basic.ctp:45
+#: /views/tasks/keyword.ctp:78
+#: /views/tasks/sorting.ctp:63
+#: /views/tasks/view.ctp:218
+msgid "Medium"
+msgstr ""
+
+#: /views/elements/taskdetail.ctp:38
+#: /views/tasks/basic.ctp:45
+#: /views/tasks/keyword.ctp:80
+#: /views/tasks/sorting.ctp:65
+#: /views/tasks/view.ctp:220
+msgid "Low"
+msgstr ""
+
+#: /views/elements/taskdetail.ctp:42
+#: /views/tasks/keyword.ctp:46
+#: /views/tasks/sorting.ctp:28
+#: /views/tasks/view.ctp:226
+msgid "Start Date"
+msgstr ""
+
+#: /views/elements/taskdetail.ctp:43
+#: /views/tasks/view.ctp:228
+msgid "End Date"
+msgstr ""
+
+#: /views/elements/topcontent.ctp:25
+#: /views/groups/add.ctp:48
+#: /views/groups/edit.ctp:43
+msgid "Mainpage"
+msgstr ""
+
+#: /views/elements/topcontent.ctp:26
+msgid "My Task"
+msgstr ""
+
+#: /views/elements/topcontent.ctp:27
+msgid "Logout"
+msgstr ""
+
+#: /views/elements/topcontent.ctp:33;33;33
+msgid "Type keyword and press enter to search"
+msgstr ""
+
+#: /views/elements/unlock.ctp:25
+msgid "Unlock member's account"
+msgstr ""
+
+#: /views/elements/unlock.ctp:31
+msgid "Reset Password?"
+msgstr ""
+
+#: /views/grades/add.ctp:32
+#: /views/grades/edit.ctp:33
+#: /views/groups/add.ctp:34
+#: /views/groups/edit.ctp:31
+#: /views/schemes/add.ctp:29
+#: /views/schemes/edit.ctp:30
+#: /views/users/add.ctp:57
+#: /views/users/edit.ctp:51
+#: /views/users/profile.ctp:55
+msgid "This %s already exist"
+msgstr ""
+
+#: /views/grades/add.ctp:33;39
+#: /views/grades/edit.ctp:34;40
+#: /views/groups/add.ctp:35
+#: /views/groups/edit.ctp:32
+#: /views/reminders/add.ctp:32
+#: /views/schemes/add.ctp:29
+#: /views/schemes/edit.ctp:30
+#: /views/tasks/basic.ctp:43;45;46;47
+#: /views/titles/add.ctp:28
+#: /views/titles/edit.ctp:29
+#: /views/users/add.ctp:49
+#: /views/users/edit.ctp:44
+#: /views/users/profile.ctp:37
+msgid "This field cannot be left blank"
+msgstr ""
+
+#: /views/grades/add.ctp:40
+#: /views/grades/edit.ctp:41
+#: /views/groups/add.ctp:36
+#: /views/groups/edit.ctp:33
+#: /views/statuses/add.ctp:77
+#: /views/users/add.ctp:31
+msgid "Number"
+msgstr ""
+
+#: /views/grades/add.ctp:40
+#: /views/grades/edit.ctp:41
+#: /views/groups/add.ctp:36
+#: /views/groups/edit.ctp:33
+#: /views/statuses/add.ctp:77
+#: /views/users/add.ctp:31
+msgid "Only"
+msgstr ""
+
+#: /views/grades/add.ctp:49
+#: /views/grades/edit.ctp:50
+#: /views/group2s/add.ctp:56;58
+#: /views/group2s/edit.ctp:51
+#: /views/schemes/add.ctp:34
+#: /views/schemes/edit.ctp:35
+#: /views/titles/add.ctp:35
+#: /views/titles/edit.ctp:36
+#: /views/users/add.ctp:77;79
+#: /views/users/edit.ctp:72;74
+msgid "%s List"
+msgstr ""
+
+#: /views/grades/edit.ctp:27
+#: /views/group2s/edit.ctp:35
+#: /views/groups/edit.ctp:27
+#: /views/schemes/edit.ctp:26
+#: /views/systems/setting.ctp:28
+#: /views/templates/edit.ctp:31
+#: /views/titles/edit.ctp:26
+#: /views/users/edit.ctp:27
+msgid "Edit %s"
+msgstr ""
+
+#: /views/grades/index.ctp:31
+#: /views/group2s/index.ctp:29
+#: /views/memberships/add.ctp:26;28
+#: /views/memberships/index.ctp:38;42
+#: /views/schemes/index.ctp:31
+#: /views/titles/index.ctp:30
+#: /views/users/index.ctp:29
+msgid "New %s"
+msgstr ""
+
+#: /views/grades/index.ctp:39
+#: /views/group2s/index.ctp:36
+#: /views/memberships/index.ctp:53
+#: /views/schemes/index.ctp:38
+#: /views/statuses/index.ctp:28
+#: /views/templates/index.ctp:48
+#: /views/titles/index.ctp:37
+#: /views/users/index.ctp:36
+msgid "No."
+msgstr ""
+
+#: /views/grades/index.ctp:42
+#: /views/group2s/index.ctp:39
+#: /views/memberships/index.ctp:59
+#: /views/schemes/index.ctp:40
+#: /views/systems/index.ctp:48
+#: /views/templates/index.ctp:52
+#: /views/titles/index.ctp:39
+#: /views/users/index.ctp:40
+msgid "Actions"
+msgstr ""
+
+#: /views/grades/index.ctp:47
+#: /views/group2s/index.ctp:43
+#: /views/schemes/index.ctp:45
+#: /views/templates/index.ctp:57
+#: /views/titles/index.ctp:44
+#: /views/users/index.ctp:45
+msgid "No record found"
+msgstr ""
+
+#: /views/grades/index.ctp:69
+#: /views/group2s/index.ctp:63
+#: /views/groups/mainpage.ctp:80
+#: /views/schemes/index.ctp:64;64
+#: /views/tasks/view.ctp:36
+#: /views/templates/index.ctp:81;84
+#: /views/titles/index.ctp:63
+#: /views/users/index.ctp:68
+msgid "Edit"
+msgstr ""
+
+#: /views/grades/index.ctp:70
+#: /views/group2s/index.ctp:64
+#: /views/groups/mainpage.ctp:81
+#: /views/memberships/index.ctp:124;124
+#: /views/schemes/index.ctp:65;65
+#: /views/tasks/view.ctp:43
+#: /views/titles/index.ctp:64
+#: /views/users/index.ctp:69
+msgid "Delete"
+msgstr ""
+
+#: /views/grades/index.ctp:70
+#: /views/group2s/index.ctp:64
+#: /views/groups/mainpage.ctp:81
+#: /views/memberships/index.ctp:124
+#: /views/schemes/index.ctp:65
+#: /views/tasks/view.ctp:43
+#: /views/titles/index.ctp:64
+#: /views/users/index.ctp:69
+msgid "confirmdelete"
+msgstr ""
+
+#: /views/grades/index.ctp:78
+#: /views/group2s/index.ctp:72
+#: /views/memberships/index.ctp:146
+#: /views/schemes/index.ctp:73
+#: /views/statuses/index.ctp:80
+#: /views/tasks/sorting.ctp:87
+#: /views/templates/index.ctp:94
+#: /views/titles/index.ctp:72
+#: /views/users/index.ctp:77
+msgid "previous"
+msgstr ""
+
+#: /views/grades/index.ctp:80
+#: /views/group2s/index.ctp:72
+#: /views/memberships/index.ctp:148
+#: /views/schemes/index.ctp:75
+#: /views/statuses/index.ctp:82
+#: /views/tasks/sorting.ctp:87
+#: /views/templates/index.ctp:96
+#: /views/titles/index.ctp:74
+#: /views/users/index.ctp:77
+msgid "next"
+msgstr ""
+
+#: /views/group2s/add.ctp:46
+#: /views/group2s/edit.ctp:42
+msgid "Select All"
+msgstr ""
+
+#: /views/group2s/index.ctp:62
+#: /views/memberships/index.ctp:117;117
+#: /views/users/index.ctp:67
+msgid "View"
+msgstr ""
+
+#: /views/group2s/view.ctp:31
+msgid "Group Members"
+msgstr ""
+
+#: /views/group2s/view.ctp:35
+msgid "This group has not any member."
+msgstr ""
+
+#: /views/groups/add.ctp:31
+#: /views/groups/mainpage.ctp:79
+msgid "Sub Committee"
+msgstr ""
+
+#: /views/groups/add.ctp:36
+#: /views/groups/edit.ctp:33
+#: /views/users/add.ctp:31
+msgid "Alphabet"
+msgstr ""
+
+#: /views/groups/add.ctp:36
+#: /views/groups/edit.ctp:33
+msgid "Space"
+msgstr ""
+
+#: /views/groups/add.ctp:36
+#: /views/groups/edit.ctp:33
+#: /views/users/add.ctp:31
+msgid "And"
+msgstr ""
+
+#: /views/groups/add.ctp:36
+#: /views/groups/edit.ctp:33
+#: /views/users/add.ctp:31
+msgid "Underscore"
+msgstr ""
+
+#: /views/groups/add.ctp:40
+msgid "Copy all member into new sub committee"
+msgstr ""
+
+#: /views/groups/edit.ctp:36
+msgid "Parent"
+msgstr ""
+
+#: /views/groups/mainpage.ctp:37
+msgid "My Committees"
+msgstr ""
+
+#: /views/groups/mainpage.ctp:44
+msgid "You are not registered under any committees yet"
+msgstr ""
+
+#: /views/groups/mainpage.ctp:46
+msgid "Please click on the appropriate committee name to continue:"
+msgstr ""
+
+#: /views/groups/mainpage.ctp:82;88
+msgid "Memberships"
+msgstr ""
+
+#: /views/helpers/multi_item.php:51
+msgid "Add"
+msgstr ""
+
+#: /views/helpers/multi_item.php:52;96
+msgid "Remove"
+msgstr ""
+
+#: /views/helpers/multi_item.php:53
+msgid "Add All"
+msgstr ""
+
+#: /views/helpers/multi_item.php:54
+msgid "Remove All"
+msgstr ""
+
+#: /views/helpers/multi_item.php:65
+msgid "Add New %s"
+msgstr ""
+
+#: /views/helpers/multi_item.php:95
+msgid "Add as"
+msgstr ""
+
+#: /views/installers/syssettings.ctp:48
+msgid "Confirm password"
+msgstr ""
+
+#: /views/layouts/default.ctp:56
+#: /views/layouts/install.ctp:69
+#: /views/layouts/tab.ctp:59
+msgid "Powered by TaskManager"
+msgstr ""
+
+#: /views/layouts/default.ctp:58
+msgid "Recomended using firefox3.5, Chrome6.0 and above."
+msgstr ""
+
+#: /views/layouts/tab.ctp:45
+#: /views/tasks/imp.ctp:80
+msgid "Members"
+msgstr ""
+
+#: /views/layouts/tab.ctp:49
+msgid "Job Schemes"
+msgstr ""
+
+#: /views/memberships/add.ctp:35;39
+#: /views/memberships/index.ctp:36;40
+msgid "Add Existing %s"
+msgstr ""
+
+#: /views/memberships/add.ctp:50
+#: /views/memberships/view.ctp:72
+msgid "List"
+msgstr ""
+
+#: /views/memberships/index.ctp:55
+#: /views/memberships/view.ctp:50
+#: /views/tasks/imp.ctp:41
+#: /views/users/view.ctp:36
+msgid "Head"
+msgstr ""
+
+#: /views/memberships/index.ctp:82
+msgid "confirmedit1"
+msgstr ""
+
+#: /views/memberships/index.ctp:84
+msgid "confirmedit"
+msgstr ""
+
+#: /views/memberships/index.ctp:128;128
+msgid "Unlock"
+msgstr ""
+
+#: /views/memberships/view.ctp:30
+msgid "Group member"
+msgstr ""
+
+#: /views/memberships/view.ctp:49
+msgid "Group Involved"
+msgstr ""
+
+#: /views/memberships/view.ctp:52
+#: /views/users/view.ctp:37
+msgid "Admin"
+msgstr ""
+
+#: /views/reminders/add.ctp:33
+msgid "Send before"
+msgstr ""
+
+#: /views/reminders/add.ctp:33
+msgid "day"
+msgstr ""
+
+#: /views/reminders/add.ctp:34
+msgid " Repeat everyday"
+msgstr ""
+
+#: /views/reminders/add.ctp:36
+msgid " Activate the notification"
+msgstr ""
+
+#: /views/statuses/add.ctp:38
+msgid "Closed"
+msgstr ""
+
+#: /views/statuses/add.ctp:43
+#: /views/tasks/view.ctp:285
+msgid "Actual End Date"
+msgstr ""
+
+#: /views/statuses/add.ctp:60
+#: /views/statuses/index.ctp:32
+#: /views/tasks/imp.ctp:78
+#: /views/tasks/view.ctp:122
+msgid "Implementor"
+msgstr ""
+
+#: /views/statuses/add.ctp:65
+#: /views/statuses/index.ctp:40
+#: /views/tasks/keyword.ctp:34
+#: /views/tasks/sorting.ctp:72
+#: /views/tasks/view.ctp:259
+msgid "Not Started"
+msgstr ""
+
+#: /views/statuses/add.ctp:66
+#: /views/statuses/index.ctp:41
+#: /views/tasks/keyword.ctp:35
+#: /views/tasks/sorting.ctp:73
+#: /views/tasks/view.ctp:260
+msgid "In Progress"
+msgstr ""
+
+#: /views/statuses/add.ctp:67
+#: /views/statuses/index.ctp:42
+#: /views/tasks/keyword.ctp:36
+#: /views/tasks/sorting.ctp:74
+#: /views/tasks/view.ctp:261
+msgid "Completed"
+msgstr ""
+
+#: /views/statuses/add.ctp:68
+#: /views/statuses/index.ctp:43
+#: /views/tasks/keyword.ctp:37
+#: /views/tasks/sorting.ctp:75
+#: /views/tasks/view.ctp:262
+msgid "Delayed"
+msgstr ""
+
+#: /views/statuses/add.ctp:69
+#: /views/statuses/index.ctp:44
+#: /views/tasks/keyword.ctp:38
+#: /views/tasks/sorting.ctp:76
+#: /views/tasks/view.ctp:263
+msgid "Cancelled"
+msgstr ""
+
+#: /views/statuses/add.ctp:70
+#: /views/statuses/index.ctp:45
+#: /views/tasks/keyword.ctp:39
+#: /views/tasks/sorting.ctp:77
+#: /views/tasks/view.ctp:264
+msgid "KIV"
+msgstr ""
+
+#: /views/statuses/add.ctp:77
+#: /views/tasks/view.ctp:269
+msgid "Status Percentage"
+msgstr ""
+
+#: /views/statuses/add.ctp:78
+#: /views/statuses/index.ctp:31
+#: /views/tasks/view.ctp:273
+msgid "Status Remark"
+msgstr ""
+
+#: /views/statuses/index.ctp:24
+msgid "Statuses"
+msgstr ""
+
+#: /views/statuses/index.ctp:30
+msgid "Progress"
+msgstr ""
+
+#: /views/statuses/index.ctp:33
+#: /views/tasks/view.ctp:280
+msgid "Updated date"
+msgstr ""
+
+#: /views/statuses/index.ctp:34
+msgid "Close date"
+msgstr ""
+
+#: /views/systems/index.ctp:33
+msgid "Language"
+msgstr ""
+
+#: /views/systems/index.ctp:41;44
+msgid "System Configuration"
+msgstr ""
+
+#: /views/systems/index.ctp:48
+#: /views/tasks/basic.ctp:45
+#: /views/users/profile.ctp:35;46;48
+msgid "Please select"
+msgstr ""
+
+#: /views/systems/index.ctp:48
+msgid "Change System Settings"
+msgstr ""
+
+#: /views/systems/index.ctp:48
+#: /views/systems/logo.ctp:24;27
+msgid "Change System Logo"
+msgstr ""
+
+#: /views/systems/index.ctp:48
+msgid "Change Language"
+msgstr ""
+
+#: /views/systems/index.ctp:48
+msgid "Update database structure"
+msgstr ""
+
+#: /views/systems/index.ctp:50
+msgid "Next"
+msgstr ""
+
+#: /views/systems/logo.ctp:31
+msgid "Current logo"
+msgstr ""
+
+#: /views/systems/logo.ctp:33
+msgid "Logo to upload"
+msgstr ""
+
+#: /views/systems/logo.ctp:35
+msgid "Suitable logo size to upload is 155x80 px"
+msgstr ""
+
+#: /views/systems/setting.ctp:25
+msgid "Reload settings"
+msgstr ""
+
+#: /views/systems/setting.ctp:34
+msgid "Agency Address"
+msgstr ""
+
+#: /views/systems/setting.ctp:35
+msgid "Agency Name"
+msgstr ""
+
+#: /views/systems/setting.ctp:36
+msgid "Agency Slogan"
+msgstr ""
+
+#: /views/systems/setting.ctp:37
+msgid "Email Method"
+msgstr ""
+
+#: /views/systems/setting.ctp:43
+msgid "Locked Period"
+msgstr ""
+
+#: /views/tasks/additional.ctp:30;49
+#: /views/tasks/basic.ctp:32;51
+#: /views/tasks/imp.ctp:29;85
+msgid "Skip"
+msgstr ""
+
+#: /views/tasks/additional.ctp:39
+#: /views/tasks/view.ctp:164
+msgid "Reference Number"
+msgstr ""
+
+#: /views/tasks/additional.ctp:41
+#: /views/tasks/view.ctp:237
+msgid "Task File"
+msgstr ""
+
+#: /views/tasks/childtask.ctp:24;28
+#: /views/tasks/view.ctp:338;340
+msgid "Go to child task"
+msgstr ""
+
+#: /views/tasks/childtask.ctp:30
+msgid "Please choose the desired committee"
+msgstr ""
+
+#: /views/tasks/childtask.ctp:33
+msgid "Go"
+msgstr ""
+
+#: /views/tasks/copy.ctp:24;28
+#: /views/tasks/view.ctp:64
+msgid "Copy the task to other committee"
+msgstr ""
+
+#: /views/tasks/imp.ctp:51;72
+msgid "Supervisor"
+msgstr ""
+
+#: /views/tasks/imp.ctp:61;75
+msgid "Desk Officer"
+msgstr ""
+
+#: /views/tasks/keyword.ctp:25
+msgid "Keyword Search"
+msgstr ""
+
+#: /views/tasks/keyword.ctp:28
+msgid "This will search the task with the keyword."
+msgstr ""
+
+#: /views/tasks/keyword.ctp:29
+msgid "Keyword"
+msgstr ""
+
+#: /views/tasks/keyword.ctp:30
+msgid "Search!"
+msgstr ""
+
+#: /views/tasks/keyword.ctp:44
+#: /views/tasks/sorting.ctp:27
+#: /views/tasks/view.ctp:144
+msgid "Task Name"
+msgstr ""
+
+#: /views/tasks/keyword.ctp:47
+#: /views/tasks/sorting.ctp:29
+msgid "Target End Date"
+msgstr ""
+
+#: /views/tasks/keyword.ctp:51
+#: /views/tasks/sorting.ctp:32
+msgid "Percentage"
+msgstr ""
+
+#: /views/tasks/view.ctp:84
+msgid "Reminder for this Task"
+msgstr ""
+
+#: /views/tasks/view.ctp:86
+#: /views/templates/guide.ctp:23
+msgid "Note"
+msgstr ""
+
+#: /views/tasks/view.ctp:90
+msgid "Reminder Setting"
+msgstr ""
+
+#: /views/tasks/view.ctp:93
+msgid "Remind Date"
+msgstr ""
+
+#: /views/tasks/view.ctp:97
+msgid "will send"
+msgstr ""
+
+#: /views/tasks/view.ctp:99
+msgid "everyday"
+msgstr ""
+
+#: /views/tasks/view.ctp:99
+msgid "after"
+msgstr ""
+
+#: /views/tasks/view.ctp:101
+msgid "on"
+msgstr ""
+
+#: /views/tasks/view.ctp:108
+msgid "Notification status"
+msgstr ""
+
+#: /views/tasks/view.ctp:109
+msgid "Active"
+msgstr ""
+
+#: /views/tasks/view.ctp:109
+msgid "Not active"
+msgstr ""
+
+#: /views/tasks/view.ctp:113;316
+msgid "No %s found"
+msgstr ""
+
+#: /views/tasks/view.ctp:141
+msgid "Task Detail"
+msgstr ""
+
+#: /views/tasks/view.ctp:150
+msgid "Meeting"
+msgstr ""
+
+#: /views/tasks/view.ctp:170
+msgid "Project"
+msgstr ""
+
+#: /views/tasks/view.ctp:184
+msgid "Client"
+msgstr ""
+
+#: /views/tasks/view.ctp:198
+msgid "Category"
+msgstr ""
+
+#: /views/tasks/view.ctp:256
+msgid "Latest Status"
+msgstr ""
+
+#: /views/tasks/view.ctp:266
+msgid "Task Status"
+msgstr ""
+
+#: /views/tasks/view.ctp:290
+msgid "More Detail"
+msgstr ""
+
+#: /views/tasks/view.ctp:302
+msgid "Comment for this Task"
+msgstr ""
+
+#: /views/tasks/view.ctp:331
+msgid "Go to parent task"
+msgstr ""
+
+#: /views/templates/guide.ctp:24
+msgid "recipient's name"
+msgstr ""
+
+#: /views/templates/guide.ctp:25
+msgid "agency's slogan"
+msgstr ""
+
+#: /views/templates/guide.ctp:26
+msgid "task's name"
+msgstr ""
+
+#: /views/templates/guide.ctp:27
+msgid "pronoun for recipient's"
+msgstr ""
+
+#: /views/templates/guide.ctp:28
+msgid "pronoun for recipient"
+msgstr ""
+
+#: /views/templates/guide.ctp:29
+msgid "recipient's current role"
+msgstr ""
+
+#: /views/templates/guide.ctp:30
+msgid "recipient's previous role"
+msgstr ""
+
+#: /views/templates/guide.ctp:31
+msgid "word is linked to task's page"
+msgstr ""
+
+#: /views/templates/guide.ctp:32
+msgid "comment content"
+msgstr ""
+
+#: /views/templates/guide.ctp:33
+msgid "user who left the comment"
+msgstr ""
+
+#: /views/templates/guide.ctp:34
+msgid "status content"
+msgstr ""
+
+#: /views/templates/guide.ctp:35
+msgid "user/group whose status was updated"
+msgstr ""
+
+#: /views/templates/guide.ctp:36
+msgid "user who updated the status"
+msgstr ""
+
+#: /views/templates/guide.ctp:37
+msgid "reminder note"
+msgstr ""
+
+#: /views/templates/guide.ctp:38
+msgid "date which was set to send reminder"
+msgstr ""
+
+#: /views/templates/guide.ctp:39
+msgid "retrieved username"
+msgstr ""
+
+#: /views/templates/guide.ctp:40
+msgid "new password"
+msgstr ""
+
+#: /views/templates/guide.ctp:41
+msgid "word is linked to login page"
+msgstr ""
+
+#: /views/templates/guide.ctp:50
+msgid "Available placeholders"
+msgstr ""
+
+#: /views/templates/index.ctp:34
+msgid "Retrieve the system template"
+msgstr ""
+
+#: /views/templates/index.ctp:34;82
+msgid "confirmretrieve"
+msgstr ""
+
+#: /views/templates/index.ctp:38
+msgid "Placeholder guide"
+msgstr ""
+
+#: /views/templates/index.ctp:82
+msgid "Retrieve"
+msgstr ""
+
+#: /views/users/add.ctp:56
+#: /views/users/edit.ctp:50
+#: /views/users/profile.ctp:54
+msgid "Invalid email format"
+msgstr ""
+
+#: /views/users/add.ctp:61
+#: /views/users/edit.ctp:55
+#: /views/users/profile.ctp:60
+msgid "Please supply valid telephone number eg: 03-6667777"
+msgstr ""
+
+#: /views/users/add.ctp:64
+#: /views/users/edit.ctp:58
+#: /views/users/profile.ctp:66
+msgid "Please supply valid mobile number eg: 012-3456789"
+msgstr ""
+
+#: /views/users/add.ctp:67
+#: /views/users/edit.ctp:61
+#: /views/users/profile.ctp:63
+msgid "Please supply valid fax number eg: 03-6667777"
+msgstr ""
+
+#: /views/users/browser.ctp:24;27
+msgid "Please Upgrade Your Browser"
+msgstr ""
+
+#: /views/users/browser.ctp:29
+msgid "You have been directed to this page because your browser does not support accepted Web standards."
+msgstr ""
+
+#: /views/users/browser.ctp:32
+msgid "Please use below browser:"
+msgstr ""
+
+#: /views/users/changepassword.ctp:25;29
+msgid "Change password"
+msgstr ""
+
+#: /views/users/changepassword.ctp:32
+msgid "Old Password"
+msgstr ""
+
+#: /views/users/changepassword.ctp:37
+#: /views/users/forcechangepassword.ctp:36
+msgid "New Password"
+msgstr ""
+
+#: /views/users/changepassword.ctp:42
+#: /views/users/forcechangepassword.ctp:42
+msgid "Confirm Password"
+msgstr ""
+
+#: /views/users/forcechangepassword.ctp:25;28
+#: /views/users/profile.ctp:24
+msgid "Change Password"
+msgstr ""
+
+#: /views/users/forcechangepassword.ctp:31
+msgid "Please reset your password."
+msgstr ""
+
+#: /views/users/forcechangepassword.ctp:32
+msgid "Password can not be the same as your username."
+msgstr ""
+
+#: /views/users/forcechangepassword.ctp:47
+#: /views/users/forgotpass.ctp:34
+#: /views/users/forgotuser.ctp:36
+msgid "Submit"
+msgstr ""
+
+#: /views/users/forgotpass.ctp:23
+#: /views/users/login.ctp:51
+msgid "Forgot your password?"
+msgstr ""
+
+#: /views/users/forgotpass.ctp:26
+msgid "Password reset"
+msgstr ""
+
+#: /views/users/forgotpass.ctp:28
+msgid "Please fill in your email address to reset your password"
+msgstr ""
+
+#: /views/users/forgotuser.ctp:25
+#: /views/users/login.ctp:53
+msgid "Forgot your username?"
+msgstr ""
+
+#: /views/users/forgotuser.ctp:28
+msgid "Username retrieval"
+msgstr ""
+
+#: /views/users/forgotuser.ctp:30
+msgid "Please fill in your email address to retrieve your username"
+msgstr ""
+
+#: /views/users/index.ctp:39
+msgid "Email Address"
+msgstr ""
+
+#: /views/users/index.ctp:70
+msgid "Reset Password"
+msgstr ""
+
+#: /views/users/index.ctp:70
+msgid "confirmreset"
+msgstr ""
+
+#: /views/users/login.ctp:37
+msgid "You have exceeded more than allowed login attempts.Please fill in the numbers and alphabets you see below."
+msgstr ""
+
+#: /views/users/login.ctp:41
+msgid "Code"
+msgstr ""
+
+#: /views/users/profile.ctp:25;30
+msgid "Edit Profile"
+msgstr ""
+
+#: /views/users/profile.ctp:32
+msgid "Changes here will take effect after you login next time."
+msgstr ""
+
+#: /views/users/view.ctp:31
+msgid "This user has not been registered with any committee."
+msgstr ""
+
+#: /views/users/view.ctp:35
+msgid "Committee Involved"
+msgstr ""
+
+#: /webroot/test.php:98
+msgid "Debug setting does not allow access to this url."
+msgstr ""
+

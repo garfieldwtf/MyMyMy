@@ -1,0 +1,1 @@
+class EmailComponent extends Object {}
