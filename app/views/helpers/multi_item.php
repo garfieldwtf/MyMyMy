@@ -113,7 +113,7 @@ class MultiItemHelper extends AppHelper
     }
     
     function left_field($fieldName,$options){
-        $output='<select multiple style="overflow:auto;height:130px;width:300px" name="'.$fieldName.'">';
+        $output='<select multiple  class="multiitembox" name="'.$fieldName.'">';
         if(!empty($options['option']) && !empty($options['selected'])){
         	$options['option']=array_diff($options['option'],$options['selected']);
         }
@@ -127,7 +127,7 @@ class MultiItemHelper extends AppHelper
     }
     
     function right_field($fieldName,$options){
-    	$output='<select multiple style="overflow:auto;height:130px;width:300px" name="'.$fieldName.'listRight">';
+    	$output='<select multiple  class="multiitembox" name="'.$fieldName.'listRight">';
         	if(!empty($options['selected'])){
             	foreach($options['selected'] as $sid=>$sname){
                 	$output.='<option value="'.$sid.'">'.$sname.'</option>';

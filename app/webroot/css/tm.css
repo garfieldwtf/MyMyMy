@@ -214,6 +214,7 @@ p.contentmenu { font-size: 10pt;  text-align: left; padding-bottom: 5px;}
 }
 #login input { 
     clear: right; 
+    width: 120px;
     margin-right:-2px;
     padding-right:5px;
     height:14px;
@@ -1083,4 +1084,11 @@ div.content{
 
 .viewtitle{
     font-weight:bold;
+}
+
+select.multiitembox{
+    height:130px;
+    width:300px;
+    overflow:auto;
+    background-color:#ffffff;
 }
