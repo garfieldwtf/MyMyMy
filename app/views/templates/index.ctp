@@ -46,9 +46,9 @@
 <thead>
 <tr>
 	<th class="number"><?php __('No.')?></th>
-	<th class="sort"><?php echo $paginator->sort(__('Title',true),'Template.title',array('url'=>array($curgroup['Group']['name'])));?></th>
-	<th class="sort"><?php echo $paginator->sort(__('Description',true),'Template.description',array('url'=>array($curgroup['Group']['name'])));?></th>
-	<th class="sort" width='70%'><?php echo $paginator->sort(__('Template',true),'Template.template',array('url'=>array($curgroup['Group']['name'])));?></th>
+	<th class="sort"><?php echo $paginator->sort(__('Title',true),'Template.title',array('url'=>array(!empty($curgroup['Group']['name'])?$curgroup['Group']['name']:'')));?></th>
+	<th class="sort"><?php echo $paginator->sort(__('Description',true),'Template.description',array('url'=>array(!empty($curgroup['Group']['name'])?$curgroup['Group']['name']:'')));?></th>
+	<th class="sort" width='70%'><?php echo $paginator->sort(__('Template',true),'Template.template',array('url'=>array(!empty($curgroup['Group']['name'])?$curgroup['Group']['name']:'')));?></th>
 	<th class="actions"><?php __('Actions');?></th>
 </tr>
 </thead>

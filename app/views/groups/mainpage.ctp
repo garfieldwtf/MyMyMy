@@ -33,7 +33,7 @@
         
         <table cellspacing="0" cellpadding="0" align="left" width="100%">
             <tr>
-                <td width="90%" align="left">
+                <td width="87%" align="left">
                     <div><h2><?php __("My Committees")?></h2></div>
                     <br/>
                     <table  cellspacing="0" cellpadding="0" align="left" width="80%" id="comm_list">
