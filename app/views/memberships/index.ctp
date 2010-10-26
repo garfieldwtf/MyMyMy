@@ -33,12 +33,16 @@
         }
         if ($curmember['Membership']['head'] || !empty($curmember['Membership']['admin'])){
             if($type=='User'){
-                echo $curLink->add($html->link(sprintf(__('Add Existing %s', true),__('User', true)), array('action' => 'add',$curgroup['Group']['name'],$type)));
-                echo '<br/>';
+                if(!empty($others)){
+                    echo $curLink->add($html->link(sprintf(__('Add Existing %s', true),__('User', true)), array('action' => 'add',$curgroup['Group']['name'],$type)));
+                    echo '<br/>';
+                }
                 echo $curLink->add($html->link(sprintf(__('New %s', true),__('User', true)), array('controller'=>'users','action' => 'add',$curgroup['Group']['name'])));
             }else{
-                echo $curLink->add($html->link(sprintf(__('Add Existing %s', true),__('Group', true)), array('action' => 'add',$curgroup['Group']['name'],$type)));
-                echo '<br/>';
+                if(!empty($others)){
+                    echo $curLink->add($html->link(sprintf(__('Add Existing %s', true),__('Group', true)), array('action' => 'add',$curgroup['Group']['name'],$type)));
+                    echo '<br/>';
+                }
                 echo $curLink->add($html->link(sprintf(__('New %s', true),__('Group', true)), array('controller'=>'group2s','action' => 'add',$curgroup['Group']['name'])));
             }
         } 

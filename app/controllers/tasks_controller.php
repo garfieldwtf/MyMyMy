@@ -277,11 +277,15 @@ class TasksController extends AppController {
     
     //assign implementor page
     function imp($group_name){
+        $task_permission=$this->task_permission($group_name,$this->params['named']['task_id']);
+        $curimp=$this->curimp($group_name,$this->params['named']['task_id']);
+        $this->set('can_add',in_array('tasks/additional',$task_permission));
+        $this->set('role',$this->Task->Implementor->Role->find('list'));
         if(!empty($this->data)){
             if(!empty($this->data['Task']['head'])){$imp[1]=$this->data['Task']['head'];}
-            if(isset($this->data['supervisor']))$imp[2]=$this->data['supervisor'];
-            if(isset($this->data['desk_officer']))$imp[3]=$this->data['desk_officer'];
-            if(isset($this->data['implementor']))$imp[4]=$this->data['implementor'];
+            if(isset($this->data['imp2']))$imp[2]=$this->data['imp2'];
+            if(isset($this->data['imp3']))$imp[3]=$this->data['imp3'];
+            if(isset($this->data['imp4']))$imp[4]=$this->data['imp4'];
             if(isset($imp)){
                 $this->Task->Implementor->AssignImplementor($this->params['named']['task_id'],$imp);
             }
@@ -291,8 +295,7 @@ class TasksController extends AppController {
             $this->Task->Notification->sendImpEmail($data['Task']);
             $this->Session->setFlash(__('The Task had been assigned', true));
             
-            $task_permission=$this->task_permission($group_name,$this->params['named']['task_id']);
-            $curimp=$this->curimp($group_name,$this->params['named']['task_id']);
+            
             if(in_array('tasks/additional',$task_permission)){
                 $this->redirect(array('action'=>'additional',$group_name,'task_id'=>$this->params['named']['task_id']));
             }elseif(!empty($curimp) || !empty($this->curmember['Membership']['head']) || !empty($this->curmember['Membership']['admin'])){
@@ -332,7 +335,7 @@ class TasksController extends AppController {
 					}
 				}
 			}
-			if($i>$this->curimp['highest']){
+			if($i>=$this->curimp['highest']){
 				//selected value
 				foreach($data as $dmodel=>$d){
 					foreach($d as $dkey=>$ddata){

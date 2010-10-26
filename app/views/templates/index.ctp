@@ -35,7 +35,7 @@
             echo '<br/>';
             echo '<br/>';
         }
-        echo $html->link(__('Placeholder guide',true), array('controller'=>'templates','action'=>'guide'),array('class'=>'button rightbutton','target'=>'blank'));
+        echo $html->link(__('Placeholder guide',true), array('controller'=>'templates','action'=>'guide'),array('class'=>'button rightbutton','target'=>'_blank'));
     ?>
 </p>
 <br/>

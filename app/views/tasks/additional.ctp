@@ -36,9 +36,9 @@
         <?php echo $form->create('Task',array('url'=>'/tasks/additional/'.$curgroup['Group']['name'].'/task_id:'.$task_id,'type'=>'file'));?>
         <fieldset>
             <?php
-                echo $form->input('ref_no',array('label'=>__('Reference Number',true)));
                 echo $form->input('task_desc',array('label'=>__('Description',true)));
                 echo $multiFile->input('task',array('label'=>__('Task File',true)));
+                echo $form->input('ref_no',array('label'=>__('Reference Number',true)));
                 echo $multiItem->input('meeting',array('option'=>$meetings,'add'=>true,'selected'=>$meeting_sel));
                 echo $multiItem->input('client',array('option'=>$clients,'add'=>true,'selected'=>$client_sel));
                 echo $multiItem->input('category',array('option'=>$categories,'add'=>true,'selected'=>$category_sel));

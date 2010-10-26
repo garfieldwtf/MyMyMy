@@ -38,7 +38,7 @@
         }
     ?>
     <fieldset>
-        <legend><?php __('Groups');?></legend>
+        <legend><?php __('Committees');?></legend>
         <div class="fieldset-inside">
             <?php 
             if (!empty($Group)){
@@ -46,7 +46,7 @@
                 <table width='90%'>
                     <thead>
                         <tr>
-                            <th><?php __('Group Involved') ?></th>
+                            <th><?php __('Committee Involved') ?></th>
                             <th><?php __('Head') ?></th>
                             <?php if($type=='User'){?>
                                 <th><?php __('Admin') ?></th>

@@ -26,7 +26,7 @@
     <div class ="menubackground">
     	<?php 
     		echo $this->element('taskbar',array('task_id'=>$this->params['named']['task_id']));
-            echo $form->button(__('Skip',true),array('class'=>'rightbutton','onclick'=>'parent.location=\'../../additional/'.$curgroup['Group']['name'].'/task_id:'.$this->params['named']['task_id'].'\''));
+            if($can_add){echo $form->button(__('Skip',true),array('class'=>'rightbutton','onclick'=>'parent.location=\'../../additional/'.$curgroup['Group']['name'].'/task_id:'.$this->params['named']['task_id'].'\''));}
         ?>
     </div>
     <br/>
@@ -35,54 +35,40 @@
     	<fieldset>
         	<?php 
                 echo $form->input('task_id',array('type'=>'hidden','value'=>$this->params['named']['task_id']));
-        		if($curimp['highest']==1){
-            		echo $form->input('head',array('type'=>'select','options'=>$head));
-				}else{
-					echo $form->label(__('Head',true)).'&nbsp;';
-        		    foreach($implementor[1] as $impl){
-        		    	foreach($impl as $imp){
-		                	echo $imp;
-        		        	echo '<br/>';
-						}
-            		}
-            		echo '<br/>';
+                if($curimp['highest']==1){
+            		echo $form->input('head',array('label'=>$role[1],'type'=>'select','options'=>$head));
 				}
-				if($curimp['highest']>1){
-					echo $form->label(__('Supervisor',true)).'&nbsp;';
-        		    foreach($implementor[2] as $impl){
-        		    	foreach($impl as $imp){
-		                	echo $imp;
-        		        	echo '<br/>';
-						}
-            		}
-            		echo '<br/>';
-				}
-				if($curimp['highest']>2){
-					echo $form->label(__('Desk Officer',true)).'&nbsp;';
-        		    foreach($implementor[3] as $impl){
-        		    	foreach($impl as $imp){
-		                	echo $imp;
-        		        	echo '<br/>';
-						}
-            		}
-            		echo '<br/>';
-				}
-				$right=array();
-				if($curimp['highest']<2){
-					$right['supervisor']=array('label'=>__('Supervisor',true),'options'=>array('selected'=>$selected[2]));
-				}
-				if($curimp['highest']<3){
-					$right['desk_officer']=array('label'=>__('Desk Officer',true),'options'=>array('selected'=>$selected[3]));
-				}
-				if($curimp['highest']<4){
-					$right['implementor']=array('label'=>__('Implementor',true),'options'=>array('selected'=>$selected[4]));
-				}
+                $right=array();
+                ksort($role);
+                foreach($role as $rkey=>$r){
+                    if($curimp['highest']>$rkey){
+                        echo $form->label($r).'&nbsp;';
+                        foreach($implementor[$rkey] as $impl){
+                            foreach($impl as $imp){
+                                echo $imp;
+                                echo '<br/>';
+                            }
+                        }
+                        echo '<br/>';
+                    }
+                    
+                    if($curimp['highest']<=$rkey && $rkey!=1){
+                        $right['imp'.$rkey]=array('label'=>$r,'options'=>array('selected'=>$selected[$rkey]));
+                    }
+                    
+                }
+                
 				echo $multiItem->multiinput(array('Members'=>array('label'=>__('Members',true),'options'=>array('option'=>$umembers,'selected'=>$m_selected)),'Groups'=>array('label'=>__('Groups',true),'options'=>array('option'=>$gmembers,'selected'=>$g_selected))),$right);
 				
 			?>
 		</fieldset>
 		<?php echo $form->button(__('Save',true),array('type'=>'submit'));?>
-		<?php echo $form->button(__('Skip',true),array('onclick'=>'parent.location=\'../../additional/'.$curgroup['Group']['name'].'/task_id:'.$this->params['named']['task_id'].'\'')); ?>
+		<?php 
+        if($can_add){
+            echo $form->button(__('Skip',true),array('onclick'=>'parent.location=\'../../additional/'.$curgroup['Group']['name'].'/task_id:'.$this->params['named']['task_id'].'\''));
+        }else{
+            echo $curLink->back($html->link(sprintf(__('Go Back to "%s"', true),sprintf(__('%s View',true),__('Task',true))), array('controller' => 'tasks', 'action' => 'view',$curgroup['Group']['name'],'task_id'=>$this->params['named']['task_id'])));
+        } ?>
 
 	<?php echo $form->end();?>
 </div>

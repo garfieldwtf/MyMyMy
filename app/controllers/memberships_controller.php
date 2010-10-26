@@ -28,6 +28,7 @@ class MembershipsController extends AppController {
     
 	function index($group_name,$type) {
         $memberships=$this->paginate('Membership',array('model'=>$type,'group_id'=>$this->curgroup['Group']['id']));
+        $this->set('others',$this->Membership->{$type}->find('count',array('conditions'=>array('not'=>array($type.'.id'=>set::extract($memberships,'{n}.Membership.foreign_key'))))));
 		$this->set('memberships',$memberships);
         $this->set('type',$type);
         $this->set('count_admin',$this->Membership->find('count',array('conditions'=>array('Membership.group_id'=>$this->curgroup['Group']['id'],'Membership.admin'=>1))));
