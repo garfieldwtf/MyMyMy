@@ -310,9 +310,7 @@ class TasksController extends AppController {
     //assign implementor page
     function imp($group_name){
         $this->Task->Behaviors->detach('MultiFile');
-        $task_permission=$this->task_permission($group_name,$this->params['named']['task_id'],1);
-        $curimp=$this->curimp;
-        $this->set('can_add',in_array('tasks/additional',$task_permission));
+        $this->set('can_add',in_array('tasks/additional',$this->task_permission));
         $this->set('role',$this->Task->Implementor->Role->find('list'));
         if(!empty($this->data)){
             if(!empty($this->data['Task']['head'])){$imp[1]=$this->data['Task']['head'];}
@@ -322,16 +320,20 @@ class TasksController extends AppController {
             if(isset($imp)){
                 $this->Task->Implementor->AssignImplementor($this->params['named']['task_id'],$imp);
             }
+            //update permission
+            $this->curimp=$this->curimp($group_name,$this->params['named']['task_id']);
+            $this->Session->write('curimp',$this->curimp);
+            $this->task_permission=$this->task_permission($group_name,$this->params['named']['task_id'],1);
+            
             $this->Task->bindmodel(array('hasMany'=>array('Notification')));
             $data=$this->Task->find('first',array('conditions'=>array('Task.id'=>$this->params['named']['task_id'])));
             $data['Task']['group_name']=$group_name;
             $this->Task->Notification->sendImpEmail($data['Task']);
             $this->Session->setFlash(__('The Task had been assigned', true));
             
-            
-            if(in_array('tasks/additional',$task_permission)){
+            if(in_array('tasks/additional',$this->task_permission)){
                 $this->redirect(array('action'=>'additional',$group_name,'task_id'=>$this->params['named']['task_id']));
-            }elseif(!empty($curimp) || !empty($this->curmember['Membership']['head']) || !empty($this->curmember['Membership']['admin'])){
+            }elseif(!empty($this->curimp) || !empty($this->curmember['Membership']['head']) || !empty($this->curmember['Membership']['admin'])){
                 $this->redirect(array('action'=>'view',$group_name,'task_id'=>$this->params['named']['task_id']));
             }else{
                 $this->redirect(array('action'=>'calendar',$group_name));
