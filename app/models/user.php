@@ -93,19 +93,6 @@ class User extends AppModel {
 	);
 
 	var $hasMany = array(
-		'Comment' => array(
-			'className' => 'Comment',
-			'foreignKey' => 'user_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
 		'Implementor' => array(
 			'className' => 'Implementor',
 			'foreignKey' => 'foreign_key',

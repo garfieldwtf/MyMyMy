@@ -108,6 +108,7 @@ class Implementor extends AppModel {
     function AssignAs($data){
     	$implementor[1]=$implementor[2]=$implementor[3]=$implementor[4]=array();
 		foreach($data['Implementor'] as $imp){
+            $this->{$imp['model']}->unbindmodel(array('hasMany'=>array('Implementor','Membership','Group2sUser')));
             if(!empty($imp['foreign_key'])){
                 $name=$this->{$imp['model']}->read(null,$imp['foreign_key']);
                 $implementor[$imp['assign_as']][$imp['model']][$imp['foreign_key']]=$name[$imp['model']]['name'];

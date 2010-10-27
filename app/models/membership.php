@@ -82,6 +82,7 @@ class Membership extends AppModel {
      */
     function head_group($user_id,$group2_id,$task=null){
         $group=$this->find('all',array('conditions'=>array('Membership.head'=>1,'or'=>array(array('Membership.model'=>'User','Membership.foreign_key'=>$user_id),array('Membership.model'=>'Group2','Membership.foreign_key'=>$group2_id)))));
+        $this->User->Implementor->Task->recursive=0;
         $group['subtask']=$this->User->Implementor->Task->find('all',array('conditions'=>array('Task.parent_id'=>$task['Task']['id'],'Task.group_id'=>set::extract($group,'{n}.Membership.group_id'))));
         $group['available']=array();
         foreach($group as $gdata){

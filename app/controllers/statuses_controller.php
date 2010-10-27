@@ -55,6 +55,7 @@ class StatusesController extends AppController {
             $oldStatus=$this->Status->find('first',array('conditions'=>array('Status.task_id'=>$this->params['named']['task_id']),'order'=>'Status.updated DESC'));
             $this->set('old',$oldStatus['Status']);
         }
+        $this->Status->Task->recursive=-1;
         $task=$this->Status->Task->find('first',array('conditions'=>array('Task.id'=>$this->params['named']['task_id'])));
         $this->set('task',$task);
         $this->set('task_id',$this->params['named']['task_id']);

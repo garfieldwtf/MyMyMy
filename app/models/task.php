@@ -226,7 +226,10 @@ class Task extends AppModel {
     function keyword_search($word,$user){
         $group=set::extract($this->Implementor->User->Group2sUser->find('all',array('conditions'=>array('Group2sUser.user_id'=>$user))),'{n}.Group2User.group2_id');
         $task_involved=$this->Implementor->find('all',array('conditions'=>array('or'=>array(array('Implementor.foreign_key'=>$user,'Implementor.model'=>'User'),array('Implementor.foreign_key'=>$group,'Implementor.model'=>'Group2')))));
-        $task_involved_id=set::extract($task_involved,'{n}.Task.id');
+        $task_involved_id=array_filter(set::extract($task_involved,'{n}.Task.id'));
+        $this->unbindModel(array('hasMany' => array('Notification','Comment','Implementor')),false);
+        $this->unbindModel(array('hasAndBelongsToMany' => array('Client','Category','Project','Meeting')),false);
+        $this->Behaviors->detach('MultiFile');
         $task=$this->find('all',array('conditions'=>array('Task.id'=>$task_involved_id,'or'=>array('Task.task_desc LIKE'=>'%'.$word.'%','Task.task_name LIKE'=>'%'.$word.'%')),'order'=>array('Task.task_name ASC')));
         //$task_name=set::extract($task,'{n}.Task.task_name');
         return $task;

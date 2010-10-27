@@ -80,7 +80,7 @@ class GroupsController extends AppController {
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Group->read(null, $id);
-            $this->set('parent',$this->Group->find('list'));
+            $this->set('parent',$this->Group->find('list',array('conditions'=>array('Group.id!='.$id))));
 		}
         
         
@@ -104,6 +104,7 @@ class GroupsController extends AppController {
      * @return null
      */
     function mainpage(){
+        $this->Group->Membership->unbindmodel(array('belongsTo'=>array('User','Group2' )));
         $group2=$this->User->Group2sUser->find('all',array('conditions'=>array('Group2sUser.user_id'=>$this->Auth->user('id'))));
         $group=$this->Group->Membership->find('all',array('conditions'=>array(
             'or'=>array(

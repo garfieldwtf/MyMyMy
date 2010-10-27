@@ -304,10 +304,7 @@
                                 echo '<tr><td class="tbody">';
                                     echo '&nbsp;'.$comm['description'];
                                     echo '<br/>';
-                                    echo '&nbsp; -- posted by '.$user[$comm['user_id']];
-                                    if(!empty($comm['group2_id'])){
-                                        echo ' ('.$group2[$comm['group2_id']].')';
-                                    };
+                                    echo '&nbsp; -- posted by '.$comm['user'];
                                     echo "<br/>&nbsp;&nbsp;&nbsp;&nbsp; on ".$comm['created'];
                                 echo '</td></tr>';
                             }

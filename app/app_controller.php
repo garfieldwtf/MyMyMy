@@ -88,43 +88,69 @@ class AppController extends Controller {
         
         //check the permission
         if($this->Auth->user()){
-            
             $this->set('curuser',$this->Auth->user());
             
-            //group
             if(!empty($this->params['pass'][0])){
                 $this->loadModel('Group');
-                $this->Group->recursive=-1;
-                $this->curgroup=$this->Group->find('first',array('conditions'=>array('Group.name'=>$this->params['pass'][0])));
+                
+                //check committee
+                if($this->params['pass'][0]!=$this->Session->read('committee')){
+                    
+                    //once $this->params['pass'][0] change
+                    $this->Session->write('committee',$this->params['pass'][0]);
+                    $this->Session->delete('curmember');
+                    $this->Group->recursive=-1;
+                    $this->curgroup=$this->Group->find('first',array('conditions'=>array('Group.name'=>$this->params['pass'][0])));
+                    $this->Session->write('curgroup',$this->curgroup);
+                    
+                    if(!empty($this->curgroup)){
+                        $this->curmember=$this->curmembership($this->curgroup['Group']['id'],1);
+                        $this->Session->write('curmember',$this->curmember);
+                    }
+                    
+                }
+                $this->curgroup=$this->Session->read('curgroup');
+                $this->curmember=$this->Session->read('curmember');
                 $this->set('curgroup',$this->curgroup);
-                if(!empty($this->curgroup)){
-                	$this->curmember=$this->curmembership($this->curgroup['Group']['id'],1);
-                	$this->set('curmember',$this->curmember);
-                	
-                	if(!empty($this->params['named']['task_id'])){
-                		$this->curimp=$this->curimp($this->curgroup['Group']['name'],$this->params['named']['task_id']);
-                		$this->set('curimp',$this->curimp);
-                		if($this->params['controller'].'/'.$this->params['action'] =='tasks/view'){
-            				if(!(isset($this->curmember['Membership']['head']) ||  !empty($this->curimp) )){
-                                
-            					$this->notallow(1);
-							}
-						}else{
-							$this->task_permission=$this->task_permission($this->curgroup['Group']['name'],$this->params['named']['task_id'],1);
-							if(!in_array($this->params['controller'].'/'.$this->params['action'],$this->task_permission)){
-                                $this->notallow(1);
-							}
-							$this->set('task_permission',$this->task_permission);
-						}
-					}else{
-						$this->group_permission=$this->group_permission($this->curgroup['Group']['id'],1);
-						if(!in_array($this->params['controller'].'/'.$this->params['action'],$this->group_permission)){
+                $this->set('curmember',$this->curmember);
+                
+                if(!empty($this->params['named']['task_id'])){
+                    
+                    //check relationship between task and current user  
+                    if($this->params['named']['task_id'] != $this->Session->read('task_id')){
+                        //once $this->params['named']['task_id'] change
+                        $this->Session->write('task_id',$this->params['named']['task_id']);
+                        $this->curimp=$this->curimp($this->curgroup['Group']['name'],$this->params['named']['task_id']);
+                        $this->Session->write('curimp',$this->curimp);
+                    }else{
+                        $this->curimp=$this->Session->read('curimp');
+                    }
+                    $this->set('curimp',$this->curimp);
+                }
+            }
+            
+            //start to check permission
+            if(!empty($this->curgroup)){
+                 if(!empty($this->params['named']['task_id'])){
+                    
+                    if($this->params['controller'].'/'.$this->params['action'] =='tasks/view'){
+                        if(!(isset($this->curmember['Membership']['head']) ||  !empty($this->curimp) )){
                             $this->notallow(1);
-						}
-						$this->set('group_permission',$this->group_permission);
-					}
-				}
-				
+                        }
+                    }else{
+                        $this->task_permission=$this->task_permission($this->curgroup['Group']['name'],$this->params['named']['task_id'],1);
+                        if(!in_array($this->params['controller'].'/'.$this->params['action'],$this->task_permission)){
+                            $this->notallow(1);
+                        }
+                        $this->set('task_permission',$this->task_permission);
+                    }
+                }else{
+                    $this->group_permission=$this->group_permission($this->curgroup['Group']['id'],1);
+                    if(!in_array($this->params['controller'].'/'.$this->params['action'],$this->group_permission)){
+                        $this->notallow(1);
+                    }
+                    $this->set('group_permission',$this->group_permission);
+                }
             }else{
             	$this->SUpermission($this->params['controller'],$this->params['action'],1);
 			}
@@ -199,6 +225,7 @@ class AppController extends Controller {
             }
             $group2_id=set::extract($groupmember,'{n}.id');
             $this->User->Implementor->recursive=0;
+            $this->User->Implementor->unbindmodel(array('belongsTo'=>array('Role')));
             $implementor=$this->User->Implementor->find('all',array('conditions'=>array(
                 'Implementor.task_id'=>$task_id,
                 'or'=>array(

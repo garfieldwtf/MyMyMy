@@ -58,8 +58,7 @@ class CommentsController extends AppController {
                 $this->Session->setFlash(sprintf(__('The %s could not be saved. ', true),__('Comment',true)).__('Please try again.', true));
 			}
 		}else{
-            
-            
+            $this->Task->recursive=-1;
             $this->set('task',$this->Task->read(null,$this->params['named']['task_id']));
         }
         $this->set(compact('model','id','impl'));

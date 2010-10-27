@@ -52,11 +52,10 @@ class TasksController extends AppController {
         $group=$this->User->Group2sUser->find('all',array('conditions'=>array('Group2sUser.user_id'=>$this->Auth->user('id'))));
         $imp=$this->Task->Implementor->find('all',array('conditions'=>array('or'=>array(array('Implementor.foreign_key'=>$this->Auth->user('id'),'Implementor.model'=>'User'),array('Implementor.foreign_key'=>set::extract($group,'{n}.Group2sUser.group2_id'),'Implementor.model'=>'Group2')))));
         $imp_task=set::extract($imp,'{n}.Implementor.task_id');
-
         $tasks=$this->paginate('Task',array('Task.id'=>$imp_task,'or'=>array(array('month(Task.end_date)'=>$__month,'year(Task.end_date)'=>$__year),array('month(Task.start_date)'=>$__month,'year(Task.start_date)'=>$__year))));
         $this->set('month_link','calendar/');
         $this->set('day_link','calendar/');
-        $this->Task->Group->Membership->recursive=-1;
+
         foreach($tasks as $t=>$task){
             $tasks[$t]['Task']['task_name']=$task['Group']['name'].'-'.$task['Task']['task_name'];
             $tasks[$t]['view']=1;
@@ -100,6 +99,7 @@ class TasksController extends AppController {
 	function view($group_name) {
         $task_id=$this->params['named']['task_id'];
         $this->Task->recursive=1;
+        $this->Task->unbindmodel(array('hasMany'=>array('Notification')));
         $task=$this->Task->read(null, $task_id);
         
         if (!$task) {
@@ -129,7 +129,7 @@ class TasksController extends AppController {
             $this->set(compact('user','group2'));
         }
         $this->set('role',$this->Task->Implementor->Role->find('list'));
-        $this->set('task_permission',$this->task_permission($group_name,$task_id));
+        $this->set('task_permission',$this->task_permission($group_name,$task_id,1));
 
         //reminder
         $this->loadModel('Reminder');
@@ -142,19 +142,48 @@ class TasksController extends AppController {
         
         //set status user name
         if(!empty($task['Status'][0])){
-        	$this->User->recursive=-1;
-        	$name=$this->User->read('name',$task['Status'][0]['user_id']);
-        	$task['Status'][0]['updater_name']=$name['User']['name'];
+            if(!empty($user[$task['Status'][0]['user_id']])){
+                $task['Status'][0]['updater_name']=$user[$task['Status'][0]['user_id']];
+            }else{
+                $this->User->recursive=-1;
+                $name=$this->User->read('name',$task['Status'][0]['user_id']);
+                $task['Status'][0]['updater_name']=$name['User']['name'];
+            }
         	if(!empty($task['Status'][0]['group2_id'])){
-        		$name=$this->Task->Implementor->Group2->read('name',$task['Status'][0]['group2_id']);
-        		$task['Status'][0]['updater_name'].='('.$name['Group2']['name'].')';
+                if(!empty($group2[$task['Status'][0]['group2_id']])){
+                    $task['Status'][0]['updater_name'].=' ('.$group2[$task['Status'][0]['group2_id']].')';
+                }else{
+                    $name=$this->Task->Implementor->Group2->read('name',$task['Status'][0]['group2_id']);
+                    $task['Status'][0]['updater_name'].='('.$name['Group2']['name'].')';
+                }
 			}
+		}
+         //set comment user name
+        if(!empty($task['Comment'])){
+            foreach($task['Comment'] as $c=>$comment){
+                if(!empty($user[$comment['user_id']])){
+                    $task['Comment'][$c]['user']=$user[$comment['user_id']];
+                }else{
+                    $this->User->recursive=-1;
+                    $name=$this->User->read('name',$comment['user_id']);
+                    $task['Comment'][$c]['user']=$name['User']['name'];
+                }
+                if(!empty($comment['group2_id'])){
+                    if(!empty($group2[$comment['group2_id']])){
+                        $task['Comment'][$c]['user'].=' ('.$group2[$comment['group2_id']].')';
+                    }else{
+                        $group2=$this->Task->Implementor->Group2->read('name',$comment['group2_id']);
+                        $task['Comment'][$c]['user'].=' ('.$group2['Group2']['name'].')';
+                    }
+                }
+            }
 		}
 
 		$this->set('task',$task );
         
         //parent task
         if(!empty($this->curimp[1])){
+            $this->Task->recursive=0;
             $this->set('ptask',$this->Task->find('first',array('conditions'=>array('Task.id'=>$task['Task']['parent_id']))));
         }
         $this->Task->Group->Membership->recursive=-1;
@@ -243,6 +272,7 @@ class TasksController extends AppController {
             }
         }
         if(!empty($this->params['named']['task_id'])){
+            $this->Task->recursive=-1;
             $this->data=$this->Task->find('first',array('conditions'=>array('Task.id'=>$this->params['named']['task_id'])));
         }
     }
@@ -259,7 +289,9 @@ class TasksController extends AppController {
                 $this->redirect(array('action'=>'view',$group_name,'task_id'=>$this->params['named']['task_id']));
             }
         }
-        $this->Task->recursive=1;
+
+        $this->Task->unbindModel(array('hasMany'=>array('Notification','Comment','Status','Implementor')));
+
         $this->data=$this->Task->find('first',array('conditions'=>array('Task.id'=>$this->params['named']['task_id'])));
         
         //the options for meeting,category,project,client
@@ -277,8 +309,9 @@ class TasksController extends AppController {
     
     //assign implementor page
     function imp($group_name){
-        $task_permission=$this->task_permission($group_name,$this->params['named']['task_id']);
-        $curimp=$this->curimp($group_name,$this->params['named']['task_id']);
+        $this->Task->Behaviors->detach('MultiFile');
+        $task_permission=$this->task_permission($group_name,$this->params['named']['task_id'],1);
+        $curimp=$this->curimp;
         $this->set('can_add',in_array('tasks/additional',$task_permission));
         $this->set('role',$this->Task->Implementor->Role->find('list'));
         if(!empty($this->data)){
@@ -305,9 +338,11 @@ class TasksController extends AppController {
             }
         }
         
-        $this->Task->recursive=1;
-        $this->data=$this->Task->find('first',array('conditions'=>array('Task.id'=>$this->params['named']['task_id'])));
+        $this->Task->unbindModel(array('hasMany'=>array('Notification','Comment','Status')));
+        $this->Task->unbindModel( array('hasAndBelongsToMany' => array('Client','Meeting','Project','Category')) );
 
+        $this->data=$this->Task->find('first',array('conditions'=>array('Task.id'=>$this->params['named']['task_id'])));
+        
         //implementor
         $implementor=$this->Task->Implementor->AssignAs($this->data);
 		$this->set('implementor',$implementor);
@@ -388,7 +423,7 @@ class TasksController extends AppController {
         if(empty($this->data)){
             
             //group selection
-            $this->Task->recursive=0;
+            $this->Task->recursive=-1;
             $task=$this->Task->read(null,$this->params['named']['task_id']);
             
             $this->Task->Group->Membership->recursive=0;
