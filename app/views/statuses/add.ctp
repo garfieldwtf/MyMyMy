@@ -35,7 +35,7 @@ echo $html->css('../js/jscalendar/skins/aqua/theme',false,false,false,false);
             b.value=0;
         }else{
             if(a!='N' && a!='P'){
-                r+='<input name="data[Status][closed]" id="StatusClosed_" value="0" type="hidden"><input name="data[Status][closed]" value="1" id="StatusClosed" type="checkbox"><label for="StatusClosed">'+'<?php __('Closed'); ?>'+'<\/label>';
+                r+='<div class="input checkbox"><input name="data[Status][closed]" id="StatusClosed_" value="0" type="hidden"><input name="data[Status][closed]" value="1" id="StatusClosed" type="checkbox"><label for="StatusClosed">'+'<?php __('Closed'); ?>'+'<\/label><\/div>';
             }
             if(a=='F'){
                  b.value=100;

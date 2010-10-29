@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2010-10-22 08:54+0800\n"
+"POT-Creation-Date: 2010-10-29 14:55+0800\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -15,30 +15,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: /app_controller.php:63
+#: /app_controller.php:62
 #: /controllers/users_controller.php:127
 msgid "Invalid username or password"
 msgstr ""
 
-#: /app_controller.php:75
+#: /app_controller.php:74
 #: /controllers/users_controller.php:144
 msgid "You have entered wrong code"
 msgstr ""
 
-#: /app_controller.php:325
+#: /app_controller.php:350
 msgid "You have entered the wrong url"
+msgstr ""
+
+#: /app_controller.php:352
+msgid "You have removed yourself from the committee membership list"
 msgstr ""
 
 #: /controllers/comments_controller.php:55
 #: /controllers/grades_controller.php:46;78
 #: /controllers/group2s_controller.php:46;73
 #: /controllers/groups_controller.php:58;75
-#: /controllers/memberships_controller.php:60;85
+#: /controllers/memberships_controller.php:62;88
 #: /controllers/reminders_controller.php:52
 #: /controllers/schemes_controller.php:47;62
-#: /controllers/statuses_controller.php:73
+#: /controllers/statuses_controller.php:74
 #: /controllers/systems_controller.php:57;132
-#: /controllers/tasks_controller.php:241;256
+#: /controllers/tasks_controller.php:270;286
 #: /controllers/templates_controller.php:48
 #: /controllers/titles_controller.php:37;52
 #: /controllers/users_controller.php:62;94;181
@@ -47,7 +51,7 @@ msgstr ""
 
 #: /controllers/comments_controller.php:55;58
 #: /views/comments/add.ctp:30
-#: /views/tasks/view.ctp:53;316
+#: /views/tasks/view.ctp:53;313
 msgid "Comment"
 msgstr ""
 
@@ -55,10 +59,10 @@ msgstr ""
 #: /controllers/grades_controller.php:49;81
 #: /controllers/group2s_controller.php:59;76
 #: /controllers/groups_controller.php:61;78
-#: /controllers/memberships_controller.php:63;88
+#: /controllers/memberships_controller.php:65;91
 #: /controllers/reminders_controller.php:55
 #: /controllers/schemes_controller.php:50;65
-#: /controllers/statuses_controller.php:76
+#: /controllers/statuses_controller.php:77
 #: /controllers/systems_controller.php:59
 #: /controllers/templates_controller.php:54
 #: /controllers/titles_controller.php:40;55
@@ -70,10 +74,10 @@ msgstr ""
 #: /controllers/grades_controller.php:49;81
 #: /controllers/group2s_controller.php:59;76;94
 #: /controllers/groups_controller.php:61;78
-#: /controllers/memberships_controller.php:63;88
+#: /controllers/memberships_controller.php:65;91
 #: /controllers/reminders_controller.php:55
 #: /controllers/schemes_controller.php:50;65;82
-#: /controllers/statuses_controller.php:76
+#: /controllers/statuses_controller.php:77
 #: /controllers/systems_controller.php:59
 #: /controllers/templates_controller.php:54
 #: /controllers/titles_controller.php:40;55
@@ -95,9 +99,9 @@ msgstr ""
 #: /controllers/grades_controller.php:57;91
 #: /controllers/group2s_controller.php:36;68;87
 #: /controllers/groups_controller.php:68;92
-#: /controllers/memberships_controller.php:38;76;94
+#: /controllers/memberships_controller.php:39;78;97
 #: /controllers/schemes_controller.php:37;57;75
-#: /controllers/tasks_controller.php:106;166
+#: /controllers/tasks_controller.php:106;195
 #: /controllers/templates_controller.php:43
 #: /controllers/titles_controller.php:47;65
 #: /controllers/users_controller.php:42;89;111;176
@@ -107,9 +111,9 @@ msgstr ""
 #: /controllers/grades_controller.php:95
 #: /controllers/group2s_controller.php:91
 #: /controllers/groups_controller.php:97
-#: /controllers/memberships_controller.php:99
+#: /controllers/memberships_controller.php:102
 #: /controllers/schemes_controller.php:79
-#: /controllers/tasks_controller.php:170
+#: /controllers/tasks_controller.php:199
 #: /controllers/titles_controller.php:69
 #: /controllers/users_controller.php:115
 msgid "%s deleted"
@@ -121,7 +125,7 @@ msgstr ""
 #: /views/group2s/index.ctp:29
 #: /views/group2s/view.ctp:24
 #: /views/memberships/add.ctp:28;35;36
-#: /views/memberships/index.ctp:40;42
+#: /views/memberships/index.ctp:43;46
 msgid "Group"
 msgstr ""
 
@@ -139,19 +143,19 @@ msgstr ""
 msgid "Committee"
 msgstr ""
 
-#: /controllers/installers_controller.php:324
+#: /controllers/installers_controller.php:214
 #: /views/users/add.ctp:30
 #: /views/users/login.ctp:33
 msgid "Username"
 msgstr ""
 
-#: /controllers/installers_controller.php:324
+#: /controllers/installers_controller.php:214
 #: /controllers/users_controller.php:243;282
 #: /views/users/login.ctp:34
 msgid "Password"
 msgstr ""
 
-#: /controllers/installers_controller.php:334
+#: /controllers/installers_controller.php:224
 #: /views/elements/Group2detail.ctp:24
 #: /views/elements/Userdetail.ctp:24
 #: /views/group2s/view.ctp:26
@@ -163,7 +167,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: /controllers/installers_controller.php:334
+#: /controllers/installers_controller.php:224
 #: /views/users/add.ctp:57
 #: /views/users/edit.ctp:51
 #: /views/users/forgotpass.ctp:30
@@ -172,7 +176,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: /controllers/memberships_controller.php:38;60;63;76;85;88;94;99
+#: /controllers/memberships_controller.php:39;62;65;78;88;91;97;102
 #: /views/users/add.ctp:79
 #: /views/users/edit.ctp:74
 msgid "Membership"
@@ -191,7 +195,7 @@ msgstr ""
 msgid "Scheme"
 msgstr ""
 
-#: /controllers/statuses_controller.php:73;76
+#: /controllers/statuses_controller.php:74;77
 #: /views/statuses/add.ctp:56;63
 #: /views/statuses/index.ctp:29
 #: /views/tasks/keyword.ctp:50
@@ -213,15 +217,19 @@ msgstr ""
 msgid "Please correct errors below."
 msgstr ""
 
-#: /controllers/systems_controller.php:153
+#: /controllers/systems_controller.php:154
 msgid "Database Structure had been updated to latest copy"
 msgstr ""
 
-#: /controllers/systems_controller.php:157
+#: /controllers/systems_controller.php:158
 msgid "The system language had been changed."
 msgstr ""
 
-#: /controllers/tasks_controller.php:106;166;170
+#: /controllers/systems_controller.php:189
+msgid "The data had been restored."
+msgstr ""
+
+#: /controllers/tasks_controller.php:106;195;199
 #: /views/comments/add.ctp:44
 #: /views/elements/taskdetail.ctp:29
 #: /views/reminders/add.ctp:43
@@ -230,24 +238,24 @@ msgstr ""
 #: /views/tasks/additional.ctp:25
 #: /views/tasks/basic.ctp:24
 #: /views/tasks/copy.ctp:35
-#: /views/tasks/imp.ctp:24
+#: /views/tasks/imp.ctp:24;70
 #: /views/tasks/view.ctp:28
 msgid "Task"
 msgstr ""
 
-#: /controllers/tasks_controller.php:241
+#: /controllers/tasks_controller.php:270
 msgid "Basic information of Task"
 msgstr ""
 
-#: /controllers/tasks_controller.php:256
+#: /controllers/tasks_controller.php:286
 msgid "Additional info of Task"
 msgstr ""
 
-#: /controllers/tasks_controller.php:292
+#: /controllers/tasks_controller.php:332
 msgid "The Task had been assigned"
 msgstr ""
 
-#: /controllers/tasks_controller.php:413
+#: /controllers/tasks_controller.php:453
 msgid "The Task has been copied"
 msgstr ""
 
@@ -257,7 +265,7 @@ msgstr ""
 msgid "Template"
 msgstr ""
 
-#: /controllers/templates_controller.php:70
+#: /controllers/templates_controller.php:78
 msgid "Template had been retrieved"
 msgstr ""
 
@@ -273,7 +281,7 @@ msgstr ""
 
 #: /controllers/users_controller.php:42;62;76;89;94;97;111;115;176
 #: /views/memberships/add.ctp:26;39;40
-#: /views/memberships/index.ctp:36;38
+#: /views/memberships/index.ctp:37;40
 #: /views/users/add.ctp:27;77
 #: /views/users/edit.ctp:27;72
 #: /views/users/index.ctp:29
@@ -384,7 +392,7 @@ msgstr ""
 #: /views/tasks/additional.ctp:48
 #: /views/tasks/basic.ctp:50
 #: /views/tasks/copy.ctp:33
-#: /views/tasks/imp.ctp:84
+#: /views/tasks/imp.ctp:65
 #: /views/templates/edit.ctp:42
 #: /views/titles/add.ctp:33
 #: /views/titles/edit.ctp:34
@@ -410,6 +418,7 @@ msgstr ""
 #: /views/statuses/add.ctp:85
 #: /views/statuses/index.ctp:85
 #: /views/tasks/copy.ctp:35
+#: /views/tasks/imp.ctp:70
 #: /views/titles/add.ctp:35
 #: /views/titles/edit.ctp:36
 #: /views/users/add.ctp:77;79
@@ -422,13 +431,14 @@ msgstr ""
 #: /views/statuses/add.ctp:85
 #: /views/statuses/index.ctp:85
 #: /views/tasks/copy.ctp:35
+#: /views/tasks/imp.ctp:70
 msgid "%s View"
 msgstr ""
 
 #: /views/elements/Group2detail.ctp:25
 #: /views/elements/taskdetail.ctp:45
 #: /views/group2s/view.ctp:27
-#: /views/tasks/additional.ctp:40
+#: /views/tasks/additional.ctp:39
 #: /views/tasks/keyword.ctp:45
 #: /views/tasks/view.ctp:232
 #: /views/templates/index.ctp:50
@@ -488,12 +498,12 @@ msgstr ""
 
 #: /views/elements/adminmenu.ctp:38
 #: /views/layouts/tab.ctp:46;52
-#: /views/memberships/view.ctp:41
-#: /views/tasks/imp.ctp:80
+#: /views/tasks/imp.ctp:61
 msgid "Groups"
 msgstr ""
 
 #: /views/elements/adminmenu.ctp:47
+#: /views/memberships/view.ctp:41
 #: /views/users/view.ctp:28
 msgid "Committees"
 msgstr ""
@@ -503,16 +513,19 @@ msgstr ""
 #: /views/grades/edit.ctp:50
 #: /views/grades/index.ctp:28
 #: /views/layouts/tab.ctp:48
+#: /views/systems/index.ctp:59
 msgid "Grades"
 msgstr ""
 
 #: /views/elements/adminmenu.ctp:52
 #: /views/schemes/add.ctp:34
 #: /views/schemes/edit.ctp:35
+#: /views/systems/index.ctp:60
 msgid "Schemes"
 msgstr ""
 
 #: /views/elements/adminmenu.ctp:61
+#: /views/systems/index.ctp:61
 #: /views/titles/add.ctp:35
 #: /views/titles/edit.ctp:36
 #: /views/titles/index.ctp:29
@@ -521,6 +534,7 @@ msgstr ""
 
 #: /views/elements/adminmenu.ctp:66;68
 #: /views/groups/mainpage.ctp:83
+#: /views/systems/index.ctp:62
 #: /views/templates/index.ctp:28
 msgid "Email Templates"
 msgstr ""
@@ -865,7 +879,7 @@ msgstr ""
 #: /views/grades/index.ctp:31
 #: /views/group2s/index.ctp:29
 #: /views/memberships/add.ctp:26;28
-#: /views/memberships/index.ctp:38;42
+#: /views/memberships/index.ctp:40;46
 #: /views/schemes/index.ctp:31
 #: /views/titles/index.ctp:30
 #: /views/users/index.ctp:29
@@ -874,7 +888,7 @@ msgstr ""
 
 #: /views/grades/index.ctp:39
 #: /views/group2s/index.ctp:36
-#: /views/memberships/index.ctp:53
+#: /views/memberships/index.ctp:57
 #: /views/schemes/index.ctp:38
 #: /views/statuses/index.ctp:28
 #: /views/templates/index.ctp:48
@@ -885,9 +899,9 @@ msgstr ""
 
 #: /views/grades/index.ctp:42
 #: /views/group2s/index.ctp:39
-#: /views/memberships/index.ctp:59
+#: /views/memberships/index.ctp:63
 #: /views/schemes/index.ctp:40
-#: /views/systems/index.ctp:48
+#: /views/systems/index.ctp:116
 #: /views/templates/index.ctp:52
 #: /views/titles/index.ctp:39
 #: /views/users/index.ctp:40
@@ -917,7 +931,7 @@ msgstr ""
 #: /views/grades/index.ctp:70
 #: /views/group2s/index.ctp:64
 #: /views/groups/mainpage.ctp:81
-#: /views/memberships/index.ctp:124;124
+#: /views/memberships/index.ctp:128;128
 #: /views/schemes/index.ctp:65;65
 #: /views/tasks/view.ctp:43
 #: /views/titles/index.ctp:64
@@ -928,7 +942,7 @@ msgstr ""
 #: /views/grades/index.ctp:70
 #: /views/group2s/index.ctp:64
 #: /views/groups/mainpage.ctp:81
-#: /views/memberships/index.ctp:124
+#: /views/memberships/index.ctp:128
 #: /views/schemes/index.ctp:65
 #: /views/tasks/view.ctp:43
 #: /views/titles/index.ctp:64
@@ -938,7 +952,7 @@ msgstr ""
 
 #: /views/grades/index.ctp:78
 #: /views/group2s/index.ctp:72
-#: /views/memberships/index.ctp:146
+#: /views/memberships/index.ctp:150
 #: /views/schemes/index.ctp:73
 #: /views/statuses/index.ctp:80
 #: /views/tasks/sorting.ctp:87
@@ -950,7 +964,7 @@ msgstr ""
 
 #: /views/grades/index.ctp:80
 #: /views/group2s/index.ctp:72
-#: /views/memberships/index.ctp:148
+#: /views/memberships/index.ctp:152
 #: /views/schemes/index.ctp:75
 #: /views/statuses/index.ctp:82
 #: /views/tasks/sorting.ctp:87
@@ -966,7 +980,7 @@ msgid "Select All"
 msgstr ""
 
 #: /views/group2s/index.ctp:62
-#: /views/memberships/index.ctp:117;117
+#: /views/memberships/index.ctp:121;121
 #: /views/users/index.ctp:67
 msgid "View"
 msgstr ""
@@ -1070,7 +1084,7 @@ msgid "Recomended using firefox3.5, Chrome6.0 and above."
 msgstr ""
 
 #: /views/layouts/tab.ctp:45
-#: /views/tasks/imp.ctp:80
+#: /views/tasks/imp.ctp:61
 msgid "Members"
 msgstr ""
 
@@ -1079,7 +1093,7 @@ msgid "Job Schemes"
 msgstr ""
 
 #: /views/memberships/add.ctp:35;39
-#: /views/memberships/index.ctp:36;40
+#: /views/memberships/index.ctp:37;43
 msgid "Add Existing %s"
 msgstr ""
 
@@ -1088,22 +1102,21 @@ msgstr ""
 msgid "List"
 msgstr ""
 
-#: /views/memberships/index.ctp:55
+#: /views/memberships/index.ctp:59
 #: /views/memberships/view.ctp:50
-#: /views/tasks/imp.ctp:41
 #: /views/users/view.ctp:36
 msgid "Head"
 msgstr ""
 
-#: /views/memberships/index.ctp:82
+#: /views/memberships/index.ctp:86
 msgid "confirmedit1"
 msgstr ""
 
-#: /views/memberships/index.ctp:84
+#: /views/memberships/index.ctp:88
 msgid "confirmedit"
 msgstr ""
 
-#: /views/memberships/index.ctp:128;128
+#: /views/memberships/index.ctp:132;132
 msgid "Unlock"
 msgstr ""
 
@@ -1112,7 +1125,8 @@ msgid "Group member"
 msgstr ""
 
 #: /views/memberships/view.ctp:49
-msgid "Group Involved"
+#: /views/users/view.ctp:35
+msgid "Committee Involved"
 msgstr ""
 
 #: /views/memberships/view.ctp:52
@@ -1147,7 +1161,6 @@ msgstr ""
 
 #: /views/statuses/add.ctp:60
 #: /views/statuses/index.ctp:32
-#: /views/tasks/imp.ctp:78
 #: /views/tasks/view.ctp:122
 msgid "Implementor"
 msgstr ""
@@ -1228,38 +1241,62 @@ msgstr ""
 msgid "Close date"
 msgstr ""
 
-#: /views/systems/index.ctp:33
+#: /views/systems/index.ctp:36
 msgid "Language"
 msgstr ""
 
-#: /views/systems/index.ctp:41;44
+#: /views/systems/index.ctp:46;70;91
+msgid "Replace the existing data"
+msgstr ""
+
+#: /views/systems/index.ctp:51;75;98
+msgid "Retrieve all template"
+msgstr ""
+
+#: /views/systems/index.ctp:56
+msgid "Type"
+msgstr ""
+
+#: /views/systems/index.ctp:58
+msgid "All"
+msgstr ""
+
+#: /views/systems/index.ctp:63
+msgid "Roles"
+msgstr ""
+
+#: /views/systems/index.ctp:109;112
 msgid "System Configuration"
 msgstr ""
 
-#: /views/systems/index.ctp:48
+#: /views/systems/index.ctp:116
 #: /views/tasks/basic.ctp:45
 #: /views/users/profile.ctp:35;46;48
 msgid "Please select"
 msgstr ""
 
-#: /views/systems/index.ctp:48
+#: /views/systems/index.ctp:116
 msgid "Change System Settings"
 msgstr ""
 
-#: /views/systems/index.ctp:48
+#: /views/systems/index.ctp:116
 #: /views/systems/logo.ctp:24;27
 msgid "Change System Logo"
 msgstr ""
 
-#: /views/systems/index.ctp:48
+#: /views/systems/index.ctp:116
 msgid "Change Language"
 msgstr ""
 
-#: /views/systems/index.ctp:48
+#: /views/systems/index.ctp:116
 msgid "Update database structure"
 msgstr ""
 
-#: /views/systems/index.ctp:50
+#: /views/systems/index.ctp:116
+msgid "Restore data"
+msgstr ""
+
+#: /views/systems/index.ctp:118
 msgid "Next"
 msgstr ""
 
@@ -1301,22 +1338,22 @@ msgstr ""
 
 #: /views/tasks/additional.ctp:30;49
 #: /views/tasks/basic.ctp:32;51
-#: /views/tasks/imp.ctp:29;85
+#: /views/tasks/imp.ctp:29;68
 msgid "Skip"
 msgstr ""
 
-#: /views/tasks/additional.ctp:39
-#: /views/tasks/view.ctp:164
-msgid "Reference Number"
-msgstr ""
-
-#: /views/tasks/additional.ctp:41
+#: /views/tasks/additional.ctp:40
 #: /views/tasks/view.ctp:237
 msgid "Task File"
 msgstr ""
 
+#: /views/tasks/additional.ctp:41
+#: /views/tasks/view.ctp:164
+msgid "Reference Number"
+msgstr ""
+
 #: /views/tasks/childtask.ctp:24;28
-#: /views/tasks/view.ctp:338;340
+#: /views/tasks/view.ctp:335;337
 msgid "Go to child task"
 msgstr ""
 
@@ -1331,14 +1368,6 @@ msgstr ""
 #: /views/tasks/copy.ctp:24;28
 #: /views/tasks/view.ctp:64
 msgid "Copy the task to other committee"
-msgstr ""
-
-#: /views/tasks/imp.ctp:51;72
-msgid "Supervisor"
-msgstr ""
-
-#: /views/tasks/imp.ctp:61;75
-msgid "Desk Officer"
 msgstr ""
 
 #: /views/tasks/keyword.ctp:25
@@ -1418,7 +1447,7 @@ msgstr ""
 msgid "Not active"
 msgstr ""
 
-#: /views/tasks/view.ctp:113;316
+#: /views/tasks/view.ctp:113;313
 msgid "No %s found"
 msgstr ""
 
@@ -1458,7 +1487,7 @@ msgstr ""
 msgid "Comment for this Task"
 msgstr ""
 
-#: /views/tasks/view.ctp:331
+#: /views/tasks/view.ctp:328
 msgid "Go to parent task"
 msgstr ""
 
@@ -1683,10 +1712,6 @@ msgstr ""
 
 #: /views/users/view.ctp:31
 msgid "This user has not been registered with any committee."
-msgstr ""
-
-#: /views/users/view.ctp:35
-msgid "Committee Involved"
 msgstr ""
 
 #: /webroot/test.php:98

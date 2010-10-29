@@ -111,7 +111,7 @@ class InstallersController extends AppController {
             $output.="\t);\n";
             $output.="}\n";
             $output.="?>\n";
-            if (!$file->writable()) return false;
+            if (!$file->writable()) {$this->Session->setFlash("Please make /app/config/database.php writable");return false;}
             else {
                 $file->open('w');
                 $file->write($output);    
@@ -145,8 +145,7 @@ class InstallersController extends AppController {
         
         if(!empty($this->data['language'])){
             $this->changelanguage($this->data['language']);
-            
-            $this->installData();
+            $this->installData(1);
             
             $this->Session->setFlash("Language is set.");
             $this->set('languageset',true);
@@ -154,115 +153,6 @@ class InstallersController extends AppController {
         
     }
     
-    //install default data
-    function installData(){
-        App::import('ConnectionManager');
-        $db= ConnectionManager :: getDataSource('default');
-        $a['grades']="REPLACE INTO `grades` (`id`, `grade`, `rank`) VALUES
-            (1,'KSN', '1'),
-            (2,'Turus I', '2'),
-            (3,'Turus II', '3'),
-            (4,'Turus III', '4'),
-            (5,'Jusa A', '5'),
-            (6,'Jusa B', '6'),
-            (7,'Jusa C', '7'),
-            (8,'54', '8'),
-            (9,'52', '9'),
-            (10,'48', '10'),
-            (11,'44', '11'),
-            (12,'41', '12'),
-            (13,'36', '13'),
-            (14,'32', '14'),
-            (15,'27', '15'),
-            (16,'22', '16'),
-            (17,'17', '17'),
-            (18,'14', '18'),
-            (19,'11', '19'),
-            (20,'1', '20')
-            ;";
-            $a['schemes']="REPLACE INTO `schemes` (`id`,`name`) VALUES
-            (1,'F'),
-            (2,'L'),
-            (3,'I'),
-            (4,'J'),
-            (5,'S'),
-            (6,'E'),
-            (7,'U'),
-            (8,'N'),
-            (9,'W'),
-            (10,'KP'),
-            (11,'KX'),
-            (12,'KB'),
-            (13,'A'),
-            (14,'G'),
-            (15,'C'),
-            (16,'M'),
-            (17,'LS'),
-            (18,'P'),
-            (19,'UD'),
-            (20,'DG'),
-            (21,'Q'),
-            (22,'X');
-            ";
-            
-        if(DEFAULT_LANGUAGE=='eng'){
-            $a['roles']="REPLACE INTO `roles` (`id`, `name`, `description`) VALUES
-                (1, 'Head', 'Head'),
-                (2, 'Supervisor', 'Supervisor'),
-                (3, 'Desk Officer', 'Desk Officer'),
-                (4, 'Implementor', 'Implementor')";
-            $a['templates']="REPLACE INTO `templates` (`id`, `model`, `foreign_key`, `type`, `title`, `description`, `template`) VALUES
-                (1, 'SystemOnly', 0, 'new account', 'New Account', 'Email which be send to new system user', '<p>Dear %name,</p><p><strong><span style=''text-decoration: underline;''>New Account<br /></span></strong></p><p>This is to inform you that there is a new account which had been created for you in Task Manager System. The login details are shown below:</p><p>Username: %username<br />Password: %newpassword</p><p>You are adviced to change the password immediately. Please login %Link.newaccount:here to update your profile.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>'),
-                (2, 'SystemOnly', 0, 'reset password', 'New Password', 'Email which be send when a user''s password had been reset', '<p>Dear %name,</p><p><strong><span style=''text-decoration: underline;''>NEW PASSWORD<br /></span></strong></p><p>This is to inform you that your reset password request in Task Manager system had been processed. A new password had been made for you. The new password is %newpassword.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>'),
-                (3, 'SystemOnly', 0, 'forgot username', 'Retrieve Username', 'Email which be send when a user had forgotten username', '<p>Dear %name,</p><p><strong><span style=''text-decoration: underline;''>RETRIEVE USERNAME<br /></span></strong></p><p>This is to inform you that your retrieve username request in Task Manager system had been processed.&nbsp; Your username is %username</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>'),
-                (4, 'System', 0, 'assign task', 'Notification of Task Assignation', 'Email which be send as notification of task assignation', '<p>Dear %name,</p><p><strong><span style=''text-decoration: underline;''>NOTIFICATION OF TASK ASSIGNATION<br /></span></strong></p><p>This is to inform you that %you had been assigned as %Implementor.as for a task. The task is shown below:</p><p>================<br /> Task Name : %Task.task_name<br /> ================</p><p>More detail: %Link.task:here.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>'),
-                (5, 'System', 0, 'deassign task', 'Notification of Task Deassignation', 'Email which be send as notification of task deassignation', '<p>Dear %name,</p><p><strong><span style=''text-decoration: underline;''>NOTIFICATION OF TASK DEASSIGNATION<br /></span></strong></p><p>This is to inform you that %your name was removed from implementor list. In previous, you were assigned as %Implementor.as. The related task is shown below:</p><p>================<br /> Task Name : %Task.task_name<br />================</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>'),
-                (6, 'System', 0, 'change role', 'Notification of Change of Role', 'Email which be send as notification of change of role', '<p>Dear %name,</p><p><strong><span style=''text-decoration: underline;''>NOTIFICATION OF CHANGE OF ROLE<br /></span></strong></p><p>This is to inform you that %your role in task %Task.task_name had been changed from %oldImplementor.as to %Implementor.as. </p><p>&nbsp;</p><p>More detail: %Link.task:here.</p><p><b>%slogan</b></p><p>Thank you.</p>'),
-                (7, 'System', 0, 'delete task', 'Notification of Task Cancellation', 'Email which be send as notification of task cancellation', '<p>Dear %name,</p><p><strong><span style=''text-decoration: underline;''>NOTIFICATION OF TASK CANCELLATION<br /></span></strong></p><p>This is to inform you that the task %Task.task_name had been cancelled.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>'),
-                (8, 'System', 0, 'task comment', 'Task Comment', 'Email which be send if there are comment on a task', '<p>Dear %name,</p><p><strong><span style=''text-decoration: underline;''>NOTIFICATION OF COMMENT ON TASK<br /></span></strong></p><p>This is to inform you that %Comment.user had commented task %Task.task_name. The comment is shown below:</p><p>================<br /> %Comment.description<br /> ================</p><p>For more detail on the related task, please click %Link.task:here.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>'),
-                (9, 'System', 0, 'update status', 'Updating of Status', 'Email which be send if there are a updating of status', '<p>Dear %name,</p><p><strong><span style=''text-decoration: underline;''>NOTIFICATION OF UPDATING OF STATUS<br /></span></strong></p><p>This is to inform you that %Updater had updated %Status.user''s status for the task %Task.task_name. The status is shown below:</p><p>================<br /> %Status.description<br /> ================</p><p>More detail about the task: %Link.task:here.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>'),
-                (10, 'System', 0, 'reminder', 'Reminder', 'Email which be send as reminder', '<p>Dear %name,</p><p><strong><span style=''text-decoration: underline;''>REMINDER OF TASK<br /></span></strong></p><p>This is to inform you that you had activated the reminder for the task %Task.task_name.</p><p>Note:</p><p>================<br /> %Reminder.note<br /> ================</p><p>Reminder Date:</p><p>================<br /> %Reminder.remind_date<br /> ================</p><p>More detail about the task: %Link.task:here.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>');";
-            $a['titles']="REPLACE INTO `titles` (`id`, `long_name`) VALUES
-                (1, 'Y.Bhg Tan Sri'),
-                (2, 'Y.Bhg Datuk'),
-                (3, 'Y.Bhg Dato'''),
-                (4, 'Y.Brs Dr.'),
-                (5, 'Hj.'),
-                (6, 'Mr.'),
-                (7, 'Madam.'),
-                (8, 'Miss');";
-        }else{
-            $a['roles']="REPLACE INTO `roles` (`id`, `name`, `description`) VALUES
-                (1, 'Head', 'Head'),
-                (2, 'Supervisor', 'Supervisor'),
-                (3, 'Desk Officer', 'Desk Officer'),
-                (4, 'Implementor', 'Implementor');";
-            $a['templates']="REPLACE INTO `templates` (`id`, `model`, `foreign_key`, `type`, `title`, `description`, `template`) VALUES
-                (1, 'SystemOnly', 0, 'new account', 'Akaun telah didaftarkan', 'Emel yang dihantar kepada pengguna sistem yang baru didaftarkan', '<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style=''text-decoration: underline;''>AKAUN ANDA TELAH DIDAFTARKAN<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Pentadbir sistem Task Manager telah mendaftarkan nama anda sebagai pengguna sistem. Maklumat log masuk anda adalah seperti berikut:</p><p>Kata nama: %username<br />Kata laluan: %newpassword</p><p>Anda dinasihatkan untuk menukar kata laluan anda. Sila log masuk di %Link.newaccount:sini untuk mengemaskini profail anda.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>'),
-                (2, 'SystemOnly', 0, 'reset password', 'Kata laluan baru', 'Emel yang dihantar apabila kata laluan disetkan semula', '<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style=''text-decoration: underline;''>KATA LALUAN BARU<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Satu permintaan telah dilakukan di Task Manager untuk set semula kata laluan tuan/puan. Oleh yang demikian, kata laluan baru telah dijana untuk kegunaan tuan/puan. Kata laluan baru tuan/puan ialah %newpassword.</p><p>Harap maklum.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>'),
-                (3, 'SystemOnly', 0, 'forgot username', 'Dapatkan semula kata nama', 'Emel yang dihantar apabila ahli terlupa kata nama', '<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style=''text-decoration: underline;''>MENDAPATKAN SEMULA KATA NAMA<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Satu permintaan telah dilakukan di Task Manager untuk mendapatkan semula kata nama tuan/puan.&nbsp; Kata nama tuan/puan ialah %username</p><p>Harap maklum.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>'),
-                (4, 'System', 0, 'assign task', 'Makluman tentang penugasan', 'Emel untuk dihantar apabila terdapat penugasan tugas', '<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style=''text-decoration: underline;''>MAKLUMAN TENTANG PENUGASAN TUGAS<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Dalam tugas %Task.task_name, %you telah ditugaskan sebagai %Implementor.as <br /> ================</p><p>Maklumat yang lebih terperinci boleh dilihat di %Link.task:sini.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>'),
-                (5, 'System', 0, 'deassign task', 'Makluman tentang pembatalan pengagihan tugas', 'Emel untuk dihantar apabila terdapat pembatalan pengagihan tugas', '<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style=''text-decoration: underline;''>MAKLUMAN TENTANG PEMBATALAN PENGAGIHAN TUGAS<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Penugasan %you sebagai  %oldImplementor.as sebelum ini telah dibatalkan. Tugas tersebut adalah seperti berikut:</p><p>================<br /> Nama Tugasan : %Task.task_name<br />================</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>'),
-                (6, 'System', 0, 'change role', 'Makluman tentang penukaran peranan', 'Emel untuk dihantar apabila terdapat penukaran peranan', '<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style=''text-decoration: underline;''>MAKLUMAN TENTANG PENUKARAN PERANAN<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Peranan %you dalam tugas %Task.task_name telah ditukar daripada %oldImplementor.as kepada %Implementor.as.</p><p>Maklumat yang lebih terperinci boleh dilihat di %Link.task:sini.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>'),
-                (7, 'System', 0, 'delete task', 'Makluman tentang pembatalan tugas', 'Emel untuk dihantar apabila terdapat pembatalan tugas', '<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style=''text-decoration: underline;''>MAKLUMAN TENTANG PEMBATALAN TUGAS<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Tugas %Task.task_name telah dibatalkan.</p><p><b>%slogan</b></p><p>Terima kasih.</p>'),
-                (8, 'System', 0, 'task comment', 'Komen Tugas', 'Emel yang dihantar jika terdapat komen yang ditinggalkan untuk tugas', '<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style=''text-decoration: underline;''>MAKLUMAN TENTANG KOMEN YANG DITINGGALKAN UNTUK TUGAS<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. %Comment.user telah meninggalkan komen untuk tugas %Task.task_name. Komennya adalah seperti berikut:</p><p>================<br /> %Comment.description<br /> ================</p><p>Maklumat tugas boleh dilihat di %Link.task:sini.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>'),
-                (9, 'System', 0, 'update status', 'Pengemaskinian status', 'Emel untuk dihantar apabila terdapat status yang dikemaskinikan', '<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style=''text-decoration: underline;''>MAKLUMAN TENTANG PENGEMASKINIAN STATUS<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. %Updater telah mengemaskinikan status %Status.user untuk tugasan %Task.task_name. Statusnya adalah seperti berikut:</p><p>================<br /> %Status.description<br /> ================</p><p>Maklumat tugasan boleh dilihat di %Link.task:here.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>'),
-                (10, 'System', 0, 'reminder', 'Peringatan', 'Emel untuk dihantar sebagai peringatan', '<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style=''text-decoration: underline;''>PERINGATAN TENTANG TUGAS<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Tuan/Puan telah mengaktifkan fungsi peringatan untuk tugasan %Task.task_name. </p><p>Catatan:</p><p>================<br /> %Reminder.note<br /> ================</p><p>Tarikh Peringatan:</p><p>================<br /> %Reminder.remind_date<br /> ================</p><p>Maklumat tugasan boleh dilihat di %Link.task:here.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>');";
-            $a['titles']="REPLACE INTO `titles` (`id`, `long_name`) VALUES
-                (1, 'Y.Bhg Tan Sri'),
-                (2, 'Y.Bhg Datuk'),
-                (3, 'Y.Bhg Dato'''),
-                (4, 'Y.Brs Dr.'),
-                (5, 'Hj.'),
-                (6, 'En.'),
-                (7, 'Pn.'),
-                (8, 'Cik');";
-        }
-       
-        foreach($a as $query){
-            $db->query($query);
-        }        
-    }
     
     //setting the agency detail
     function syssettings(){

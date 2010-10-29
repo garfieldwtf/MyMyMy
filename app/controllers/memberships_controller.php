@@ -58,6 +58,7 @@ class MembershipsController extends AppController {
             $this->data['Membership']['group_id']=$this->curgroup['Group']['id'];
 			$this->Membership->create();
 			if ($this->Membership->save($this->data)) {
+                $this->reset_permission();
                 $this->Session->setFlash(sprintf(__('The %s has been saved', true),__('Membership',true)));
 				$this->redirect(array('action'=>'index',$group_name,$type));
 			} else {
@@ -83,6 +84,7 @@ class MembershipsController extends AppController {
             $this->data['Membership'][$role]=1;
         }
         if ($this->Membership->save($this->data)) {
+            $this->reset_permission();
             $this->Session->setFlash(sprintf(__('The %s has been saved', true),__('Membership',true)));
             $this->redirect(array('controller'=>'memberships','action'=>'index',$group_name,$type));
         } else {
@@ -98,13 +100,16 @@ class MembershipsController extends AppController {
         $user=$this->Membership->read(null,$id);
 		if ($this->Membership->delete($id)) {
             $this->Session->setFlash(sprintf(__('%s deleted', true),__('Membership',true)));
-            if($type=='User' && $user['Membership']['foreign_key']==$this->Auth->user('id')){
-                $this->redirect(array('action'=>'mainpage','controller'=>'groups'));
-            }else{
-                $this->redirect(array('action'=>'index',$group_name,$type));
-            }
+            $this->reset_permission();
+            $this->redirect(array('action'=>'index',$group_name,$type));
 		}
 	}
+    
+    function reset_permission(){
+        $this->curmember=$this->curmembership($this->curgroup['Group']['id'],1);
+        $this->Session->write('curmember',$this->curmember);
+        $this->set('curmember',$this->curmember);
+    }
 	
 	
 

@@ -28,7 +28,15 @@
         <legend>Language</legend>
         <div class="fieldset-inside">
         Please choose the language. Task Manager will be set up to use the language below by default.
-        <?php echo $form->input('language',array('type'=>'select','options'=>array('eng'=>'English','may'=>'Malay'))); ?>
+        <?php 
+        $lang=array('eng'=>'English','may'=>'Malay');
+        if ($languageset){
+            echo $form->label('Language','Language');
+            echo '<br/>'.$lang[DEFAULT_LANGUAGE];
+        }else{
+            echo $form->input('language',array('label'=>'Language','type'=>'select','options'=>$lang,'value'=>DEFAULT_LANGUAGE));
+        }
+        ?>
         <br /></div>
     </fieldset>
     <?php

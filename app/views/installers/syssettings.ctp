@@ -56,8 +56,6 @@ echo $javascript->link('passchk.js',false);
     <?php echo $this->element('globalsetting');?>
     <p>&nbsp;</p>
     <?php
-        echo $form->button('Back',array('type'=>'button', 'onclick'=>'parent.location="language"','class'=>'button'));
-        echo '&nbsp;';
         if (count($syssettingset))
             echo $form->button('Submit',array('type'=>'submit','class'=>'button'));
         else 

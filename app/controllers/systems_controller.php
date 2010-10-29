@@ -148,25 +148,53 @@ class SystemsController extends AppController {
     }
     
     function index(){
-        if($this->data['type']=='Database'){
-            $this->_fixupdatabase();
-            $this->Session->setFlash(__("Database Structure had been updated to latest copy",true));
-        }elseif($this->data['type']=='language'){
-            if(!empty($this->data['language'])){
-                $this->changelanguage($this->data['language']);
-                $this->Session->setFlash(__("The system language had been changed.",true));
+        if(!empty($this->data['System']['type'])){
+            if($this->data['System']['type']=='Database'){
+                $this->_fixupdatabase();
+                $this->Session->setFlash(__("Database Structure had been updated to latest copy",true));
+            }elseif($this->data['System']['type']=='language'){
+                if(!empty($this->data['language'])){
+                    $this->changelanguage($this->data['language']);
+                    $this->Session->setFlash(__("The system language had been changed.",true));
+                    if( !empty($this->data['replace'])){
+                        $this->installData();
+                    }
+                    if(!empty($this->data['retrieve'])){
+                        $this->retrieveTemplate();
+                    }
+                }
+                $this->redirect(array('controller'=>'systems','action'=>'index'));
+            }elseif($this->data['System']['type']=='setting'){
+                $this->redirect(array('action'=>'setting'));
+            }elseif($this->data['System']['type']=='logo'){
+                $this->redirect(array('action'=>'logo'));
+            }elseif($this->data['System']['type']=='Data'){
+                if($this->data['table']=='all'){
+                    $this->installData($this->data['replace']);
+                }elseif($this->data['table']=='Grade'){
+                    $this->restore_grades_data();
+                }elseif($this->data['table']=='Scheme'){
+                    $this->schemes_data(); 
+                }elseif($this->data['table']=='Title'){
+                    $this->titles_data($this->data['replace']); 
+                }elseif($this->data['table']=='Template'){
+                    $this->System_template($this->data['replace']);
+                    $this->SystemOnly_template($this->data['replace']);
+                    if(!empty($this->data['retrieve'])){
+                        $this->retrieveTemplate();
+                    }
+                }elseif($this->data['table']=='Role'){
+                    $this->roles_data($this->data['replace']);
+                }
+                $this->Session->setFlash(__("The data had been restored.",true));
+                $this->redirect(array('controller'=>'systems','action'=>'index'));
             }
-            $this->redirect(array('controller'=>'systems','action'=>'index'));
-        }elseif($this->data['type']=='setting'){
-            $this->redirect(array('action'=>'setting'));
-        }elseif($this->data['type']=='logo'){
-            $this->redirect(array('action'=>'logo'));
         }
     }
     
     function _fixupdatabase(){
         $file=$this->createTables();
-        
+        debug($file);
         App::import('ConnectionManager');
         $db= ConnectionManager :: getDataSource('default');
         
@@ -193,6 +221,21 @@ class SystemsController extends AppController {
                     }
                 }
             }
+        }
+    }
+    
+    function retrieveTemplate(){
+        $this->loadModel('Group');
+        $this->Group->recursive=-1;
+        $committee=$this->Group->find('all');
+        foreach($committee as $ckey=>$cdata){
+            $this->Template->duplicate(array('Template.model'=>'System'),'Group',$cdata['Group']['id']);
+        }
+        $this->loadModel('Task');
+        $this->Task->recursive=-1;
+        $task=$this->Task->find('all');
+        foreach($task as $tkey=>$tdata){
+            $this->Template->duplicate(array('Template.model'=>'System'),'Task',$tdata['Task']['id']);
         }
     }
     

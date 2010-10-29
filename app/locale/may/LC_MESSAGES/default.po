@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2010-10-22 08:54+0800\n"
+"POT-Creation-Date: 2010-10-29 14:55+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: teow <teow@oscc.org.my>\n"
 "Language-Team: \n"
@@ -9,30 +9,34 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /app_controller.php:63
+#: /app_controller.php:62
 #: /controllers/users_controller.php:127
 msgid "Invalid username or password"
 msgstr "Id pengguna atau kata laluan tidak sah"
 
-#: /app_controller.php:75
+#: /app_controller.php:74
 #: /controllers/users_controller.php:144
 msgid "You have entered wrong code"
 msgstr "Anda telah memasukkan kod yang salah"
 
-#: /app_controller.php:325
+#: /app_controller.php:350
 msgid "You have entered the wrong url"
 msgstr "Anda telah memasukkan url yang salah"
+
+#: /app_controller.php:352
+msgid "You have removed yourself from the committee membership list"
+msgstr "Anda telah memadamkan nama anda daripada senarai ahli-ahli jawatankuasa"
 
 #: /controllers/comments_controller.php:55
 #: /controllers/grades_controller.php:46;78
 #: /controllers/group2s_controller.php:46;73
 #: /controllers/groups_controller.php:58;75
-#: /controllers/memberships_controller.php:60;85
+#: /controllers/memberships_controller.php:62;88
 #: /controllers/reminders_controller.php:52
 #: /controllers/schemes_controller.php:47;62
-#: /controllers/statuses_controller.php:73
+#: /controllers/statuses_controller.php:74
 #: /controllers/systems_controller.php:57;132
-#: /controllers/tasks_controller.php:241;256
+#: /controllers/tasks_controller.php:270;286
 #: /controllers/templates_controller.php:48
 #: /controllers/titles_controller.php:37;52
 #: /controllers/users_controller.php:62;94;181
@@ -41,7 +45,7 @@ msgstr "%s telah disimpan."
 
 #: /controllers/comments_controller.php:55;58
 #: /views/comments/add.ctp:30
-#: /views/tasks/view.ctp:53;316
+#: /views/tasks/view.ctp:53;313
 msgid "Comment"
 msgstr "Komen"
 
@@ -49,10 +53,10 @@ msgstr "Komen"
 #: /controllers/grades_controller.php:49;81
 #: /controllers/group2s_controller.php:59;76
 #: /controllers/groups_controller.php:61;78
-#: /controllers/memberships_controller.php:63;88
+#: /controllers/memberships_controller.php:65;91
 #: /controllers/reminders_controller.php:55
 #: /controllers/schemes_controller.php:50;65
-#: /controllers/statuses_controller.php:76
+#: /controllers/statuses_controller.php:77
 #: /controllers/systems_controller.php:59
 #: /controllers/templates_controller.php:54
 #: /controllers/titles_controller.php:40;55
@@ -64,10 +68,10 @@ msgstr "%s tidak dapat disimpan."
 #: /controllers/grades_controller.php:49;81
 #: /controllers/group2s_controller.php:59;76;94
 #: /controllers/groups_controller.php:61;78
-#: /controllers/memberships_controller.php:63;88
+#: /controllers/memberships_controller.php:65;91
 #: /controllers/reminders_controller.php:55
 #: /controllers/schemes_controller.php:50;65;82
-#: /controllers/statuses_controller.php:76
+#: /controllers/statuses_controller.php:77
 #: /controllers/systems_controller.php:59
 #: /controllers/templates_controller.php:54
 #: /controllers/titles_controller.php:40;55
@@ -89,9 +93,9 @@ msgstr "Gred"
 #: /controllers/grades_controller.php:57;91
 #: /controllers/group2s_controller.php:36;68;87
 #: /controllers/groups_controller.php:68;92
-#: /controllers/memberships_controller.php:38;76;94
+#: /controllers/memberships_controller.php:39;78;97
 #: /controllers/schemes_controller.php:37;57;75
-#: /controllers/tasks_controller.php:106;166
+#: /controllers/tasks_controller.php:106;195
 #: /controllers/templates_controller.php:43
 #: /controllers/titles_controller.php:47;65
 #: /controllers/users_controller.php:42;89;111;176
@@ -101,9 +105,9 @@ msgstr "%s Tidak Wujud."
 #: /controllers/grades_controller.php:95
 #: /controllers/group2s_controller.php:91
 #: /controllers/groups_controller.php:97
-#: /controllers/memberships_controller.php:99
+#: /controllers/memberships_controller.php:102
 #: /controllers/schemes_controller.php:79
-#: /controllers/tasks_controller.php:170
+#: /controllers/tasks_controller.php:199
 #: /controllers/titles_controller.php:69
 #: /controllers/users_controller.php:115
 msgid "%s deleted"
@@ -115,7 +119,7 @@ msgstr "%s telah dihapuskan."
 #: /views/group2s/index.ctp:29
 #: /views/group2s/view.ctp:24
 #: /views/memberships/add.ctp:28;35;36
-#: /views/memberships/index.ctp:40;42
+#: /views/memberships/index.ctp:43;46
 msgid "Group"
 msgstr "Kumpulan"
 
@@ -133,19 +137,19 @@ msgstr "%s tidak dapat dihapuskan."
 msgid "Committee"
 msgstr "Jawatankuasa"
 
-#: /controllers/installers_controller.php:324
+#: /controllers/installers_controller.php:214
 #: /views/users/add.ctp:30
 #: /views/users/login.ctp:33
 msgid "Username"
 msgstr "Id Pengguna"
 
-#: /controllers/installers_controller.php:324
+#: /controllers/installers_controller.php:214
 #: /controllers/users_controller.php:243;282
 #: /views/users/login.ctp:34
 msgid "Password"
 msgstr "Kata laluan"
 
-#: /controllers/installers_controller.php:334
+#: /controllers/installers_controller.php:224
 #: /views/elements/Group2detail.ctp:24
 #: /views/elements/Userdetail.ctp:24
 #: /views/group2s/view.ctp:26
@@ -157,7 +161,7 @@ msgstr "Kata laluan"
 msgid "Name"
 msgstr "Nama"
 
-#: /controllers/installers_controller.php:334
+#: /controllers/installers_controller.php:224
 #: /views/users/add.ctp:57
 #: /views/users/edit.ctp:51
 #: /views/users/forgotpass.ctp:30
@@ -166,7 +170,7 @@ msgstr "Nama"
 msgid "Email"
 msgstr "Emel"
 
-#: /controllers/memberships_controller.php:38;60;63;76;85;88;94;99
+#: /controllers/memberships_controller.php:39;62;65;78;88;91;97;102
 #: /views/users/add.ctp:79
 #: /views/users/edit.ctp:74
 msgid "Membership"
@@ -185,7 +189,7 @@ msgstr "Peringatan"
 msgid "Scheme"
 msgstr "Skim"
 
-#: /controllers/statuses_controller.php:73;76
+#: /controllers/statuses_controller.php:74;77
 #: /views/statuses/add.ctp:56;63
 #: /views/statuses/index.ctp:29
 #: /views/tasks/keyword.ctp:50
@@ -207,15 +211,19 @@ msgstr "Logo"
 msgid "Please correct errors below."
 msgstr "Sila betulkan ralat-ralat dibawah."
 
-#: /controllers/systems_controller.php:153
+#: /controllers/systems_controller.php:154
 msgid "Database Structure had been updated to latest copy"
 msgstr "Struktur pengkalan data  telah dikemaskinikan"
 
-#: /controllers/systems_controller.php:157
+#: /controllers/systems_controller.php:158
 msgid "The system language had been changed."
 msgstr "Bahasa sistem telah berubah. "
 
-#: /controllers/tasks_controller.php:106;166;170
+#: /controllers/systems_controller.php:189
+msgid "The data had been restored."
+msgstr "Data-data telah dikemaskini"
+
+#: /controllers/tasks_controller.php:106;195;199
 #: /views/comments/add.ctp:44
 #: /views/elements/taskdetail.ctp:29
 #: /views/reminders/add.ctp:43
@@ -224,24 +232,24 @@ msgstr "Bahasa sistem telah berubah. "
 #: /views/tasks/additional.ctp:25
 #: /views/tasks/basic.ctp:24
 #: /views/tasks/copy.ctp:35
-#: /views/tasks/imp.ctp:24
+#: /views/tasks/imp.ctp:24;70
 #: /views/tasks/view.ctp:28
 msgid "Task"
 msgstr "Tugas"
 
-#: /controllers/tasks_controller.php:241
+#: /controllers/tasks_controller.php:270
 msgid "Basic information of Task"
 msgstr "Maklumat Asas Tugas"
 
-#: /controllers/tasks_controller.php:256
+#: /controllers/tasks_controller.php:286
 msgid "Additional info of Task"
 msgstr "Maklumat Tambahan Tugas"
 
-#: /controllers/tasks_controller.php:292
+#: /controllers/tasks_controller.php:332
 msgid "The Task had been assigned"
 msgstr "Tugas sudah diagihkan."
 
-#: /controllers/tasks_controller.php:413
+#: /controllers/tasks_controller.php:453
 msgid "The Task has been copied"
 msgstr "Tugas sudah disalin."
 
@@ -251,7 +259,7 @@ msgstr "Tugas sudah disalin."
 msgid "Template"
 msgstr "Templat Mesej"
 
-#: /controllers/templates_controller.php:70
+#: /controllers/templates_controller.php:78
 msgid "Template had been retrieved"
 msgstr "Templat telah didapatkan semula"
 
@@ -267,7 +275,7 @@ msgstr "Tajuk"
 
 #: /controllers/users_controller.php:42;62;76;89;94;97;111;115;176
 #: /views/memberships/add.ctp:26;39;40
-#: /views/memberships/index.ctp:36;38
+#: /views/memberships/index.ctp:37;40
 #: /views/users/add.ctp:27;77
 #: /views/users/edit.ctp:27;72
 #: /views/users/index.ctp:29
@@ -331,7 +339,7 @@ msgstr "Akaun %s telah dibuka semula"
 
 #: /controllers/components/multi_file.php:45
 msgid "You don't have permission to view this file"
-msgstr ""
+msgstr "Anda tidak dibenarkan untul melihat fail ini"
 
 #: /models/notification.php:149
 msgid "you"
@@ -378,7 +386,7 @@ msgstr "Oleh"
 #: /views/tasks/additional.ctp:48
 #: /views/tasks/basic.ctp:50
 #: /views/tasks/copy.ctp:33
-#: /views/tasks/imp.ctp:84
+#: /views/tasks/imp.ctp:65
 #: /views/templates/edit.ctp:42
 #: /views/titles/add.ctp:33
 #: /views/titles/edit.ctp:34
@@ -404,6 +412,7 @@ msgstr "Simpan"
 #: /views/statuses/add.ctp:85
 #: /views/statuses/index.ctp:85
 #: /views/tasks/copy.ctp:35
+#: /views/tasks/imp.ctp:70
 #: /views/titles/add.ctp:35
 #: /views/titles/edit.ctp:36
 #: /views/users/add.ctp:77;79
@@ -416,13 +425,14 @@ msgstr "Kembali ke \"%s\""
 #: /views/statuses/add.ctp:85
 #: /views/statuses/index.ctp:85
 #: /views/tasks/copy.ctp:35
+#: /views/tasks/imp.ctp:70
 msgid "%s View"
 msgstr "Lihat %s"
 
 #: /views/elements/Group2detail.ctp:25
 #: /views/elements/taskdetail.ctp:45
 #: /views/group2s/view.ctp:27
-#: /views/tasks/additional.ctp:40
+#: /views/tasks/additional.ctp:39
 #: /views/tasks/keyword.ctp:45
 #: /views/tasks/view.ctp:232
 #: /views/templates/index.ctp:50
@@ -482,12 +492,12 @@ msgstr "Ahli-ahli"
 
 #: /views/elements/adminmenu.ctp:38
 #: /views/layouts/tab.ctp:46;52
-#: /views/memberships/view.ctp:41
-#: /views/tasks/imp.ctp:80
+#: /views/tasks/imp.ctp:61
 msgid "Groups"
 msgstr "Kumpulan"
 
 #: /views/elements/adminmenu.ctp:47
+#: /views/memberships/view.ctp:41
 #: /views/users/view.ctp:28
 msgid "Committees"
 msgstr "Jawatankuasa"
@@ -497,16 +507,19 @@ msgstr "Jawatankuasa"
 #: /views/grades/edit.ctp:50
 #: /views/grades/index.ctp:28
 #: /views/layouts/tab.ctp:48
+#: /views/systems/index.ctp:59
 msgid "Grades"
 msgstr "Gred"
 
 #: /views/elements/adminmenu.ctp:52
 #: /views/schemes/add.ctp:34
 #: /views/schemes/edit.ctp:35
+#: /views/systems/index.ctp:60
 msgid "Schemes"
 msgstr "Skim"
 
 #: /views/elements/adminmenu.ctp:61
+#: /views/systems/index.ctp:61
 #: /views/titles/add.ctp:35
 #: /views/titles/edit.ctp:36
 #: /views/titles/index.ctp:29
@@ -515,6 +528,7 @@ msgstr "Tajuk"
 
 #: /views/elements/adminmenu.ctp:66;68
 #: /views/groups/mainpage.ctp:83
+#: /views/systems/index.ctp:62
 #: /views/templates/index.ctp:28
 msgid "Email Templates"
 msgstr "Templat-templat Email"
@@ -859,7 +873,7 @@ msgstr "Kemaskini %s"
 #: /views/grades/index.ctp:31
 #: /views/group2s/index.ctp:29
 #: /views/memberships/add.ctp:26;28
-#: /views/memberships/index.ctp:38;42
+#: /views/memberships/index.ctp:40;46
 #: /views/schemes/index.ctp:31
 #: /views/titles/index.ctp:30
 #: /views/users/index.ctp:29
@@ -868,7 +882,7 @@ msgstr "Tambah %s"
 
 #: /views/grades/index.ctp:39
 #: /views/group2s/index.ctp:36
-#: /views/memberships/index.ctp:53
+#: /views/memberships/index.ctp:57
 #: /views/schemes/index.ctp:38
 #: /views/statuses/index.ctp:28
 #: /views/templates/index.ctp:48
@@ -879,9 +893,9 @@ msgstr "No."
 
 #: /views/grades/index.ctp:42
 #: /views/group2s/index.ctp:39
-#: /views/memberships/index.ctp:59
+#: /views/memberships/index.ctp:63
 #: /views/schemes/index.ctp:40
-#: /views/systems/index.ctp:48
+#: /views/systems/index.ctp:116
 #: /views/templates/index.ctp:52
 #: /views/titles/index.ctp:39
 #: /views/users/index.ctp:40
@@ -911,7 +925,7 @@ msgstr "Kemaskini"
 #: /views/grades/index.ctp:70
 #: /views/group2s/index.ctp:64
 #: /views/groups/mainpage.ctp:81
-#: /views/memberships/index.ctp:124;124
+#: /views/memberships/index.ctp:128;128
 #: /views/schemes/index.ctp:65;65
 #: /views/tasks/view.ctp:43
 #: /views/titles/index.ctp:64
@@ -922,7 +936,7 @@ msgstr "Hapus"
 #: /views/grades/index.ctp:70
 #: /views/group2s/index.ctp:64
 #: /views/groups/mainpage.ctp:81
-#: /views/memberships/index.ctp:124
+#: /views/memberships/index.ctp:128
 #: /views/schemes/index.ctp:65
 #: /views/tasks/view.ctp:43
 #: /views/titles/index.ctp:64
@@ -932,7 +946,7 @@ msgstr "pastihapus"
 
 #: /views/grades/index.ctp:78
 #: /views/group2s/index.ctp:72
-#: /views/memberships/index.ctp:146
+#: /views/memberships/index.ctp:150
 #: /views/schemes/index.ctp:73
 #: /views/statuses/index.ctp:80
 #: /views/tasks/sorting.ctp:87
@@ -944,7 +958,7 @@ msgstr "sebelumnya"
 
 #: /views/grades/index.ctp:80
 #: /views/group2s/index.ctp:72
-#: /views/memberships/index.ctp:148
+#: /views/memberships/index.ctp:152
 #: /views/schemes/index.ctp:75
 #: /views/statuses/index.ctp:82
 #: /views/tasks/sorting.ctp:87
@@ -960,7 +974,7 @@ msgid "Select All"
 msgstr "Pilih Semua"
 
 #: /views/group2s/index.ctp:62
-#: /views/memberships/index.ctp:117;117
+#: /views/memberships/index.ctp:121;121
 #: /views/users/index.ctp:67
 msgid "View"
 msgstr "Lihat"
@@ -1064,7 +1078,7 @@ msgid "Recomended using firefox3.5, Chrome6.0 and above."
 msgstr ""
 
 #: /views/layouts/tab.ctp:45
-#: /views/tasks/imp.ctp:80
+#: /views/tasks/imp.ctp:61
 msgid "Members"
 msgstr "Ahli-ahli"
 
@@ -1073,7 +1087,7 @@ msgid "Job Schemes"
 msgstr "Skim Perkhidmatan"
 
 #: /views/memberships/add.ctp:35;39
-#: /views/memberships/index.ctp:36;40
+#: /views/memberships/index.ctp:37;43
 msgid "Add Existing %s"
 msgstr "Tambah %s yang Wujud"
 
@@ -1082,22 +1096,21 @@ msgstr "Tambah %s yang Wujud"
 msgid "List"
 msgstr "Senarai"
 
-#: /views/memberships/index.ctp:55
+#: /views/memberships/index.ctp:59
 #: /views/memberships/view.ctp:50
-#: /views/tasks/imp.ctp:41
 #: /views/users/view.ctp:36
 msgid "Head"
 msgstr "Ketua"
 
-#: /views/memberships/index.ctp:82
+#: /views/memberships/index.ctp:86
 msgid "confirmedit1"
 msgstr "pastikemaskini1"
 
-#: /views/memberships/index.ctp:84
+#: /views/memberships/index.ctp:88
 msgid "confirmedit"
 msgstr "pastikemaskini"
 
-#: /views/memberships/index.ctp:128;128
+#: /views/memberships/index.ctp:132;132
 msgid "Unlock"
 msgstr "Buka semula"
 
@@ -1106,8 +1119,9 @@ msgid "Group member"
 msgstr "Ahli kumpulan"
 
 #: /views/memberships/view.ctp:49
-msgid "Group Involved"
-msgstr "Kumpulan terlibat"
+#: /views/users/view.ctp:35
+msgid "Committee Involved"
+msgstr "Jawatankuasa terlibat"
 
 #: /views/memberships/view.ctp:52
 #: /views/users/view.ctp:37
@@ -1141,7 +1155,6 @@ msgstr "Tarikh Akhir Sebenar"
 
 #: /views/statuses/add.ctp:60
 #: /views/statuses/index.ctp:32
-#: /views/tasks/imp.ctp:78
 #: /views/tasks/view.ctp:122
 msgid "Implementor"
 msgstr "Pelaksana"
@@ -1222,38 +1235,62 @@ msgstr "Tarikh kemaskini"
 msgid "Close date"
 msgstr "Tarikh Tutup"
 
-#: /views/systems/index.ctp:33
+#: /views/systems/index.ctp:36
 msgid "Language"
 msgstr "Bahasa"
 
-#: /views/systems/index.ctp:41;44
+#: /views/systems/index.ctp:46;70;91
+msgid "Replace the existing data"
+msgstr "Gantikan the data yang wujud dengan data yang baru"
+
+#: /views/systems/index.ctp:51;75;98
+msgid "Retrieve all template"
+msgstr "Dapatkan semula templat"
+
+#: /views/systems/index.ctp:56
+msgid "Type"
+msgstr "Jenis"
+
+#: /views/systems/index.ctp:58
+msgid "All"
+msgstr "Semua"
+
+#: /views/systems/index.ctp:63
+msgid "Roles"
+msgstr "Peranan"
+
+#: /views/systems/index.ctp:109;112
 msgid "System Configuration"
 msgstr "Konfigurasi Sistem"
 
-#: /views/systems/index.ctp:48
+#: /views/systems/index.ctp:116
 #: /views/tasks/basic.ctp:45
 #: /views/users/profile.ctp:35;46;48
 msgid "Please select"
 msgstr "Sila pilih"
 
-#: /views/systems/index.ctp:48
+#: /views/systems/index.ctp:116
 msgid "Change System Settings"
 msgstr "Tukar Tetapan Sistem"
 
-#: /views/systems/index.ctp:48
+#: /views/systems/index.ctp:116
 #: /views/systems/logo.ctp:24;27
 msgid "Change System Logo"
 msgstr "Tukar Logo Sistem"
 
-#: /views/systems/index.ctp:48
+#: /views/systems/index.ctp:116
 msgid "Change Language"
 msgstr "Tukar Bahasa"
 
-#: /views/systems/index.ctp:48
+#: /views/systems/index.ctp:116
 msgid "Update database structure"
 msgstr "Kemaskini Struktur Pangkalan Data "
 
-#: /views/systems/index.ctp:50
+#: /views/systems/index.ctp:116
+msgid "Restore data"
+msgstr ""
+
+#: /views/systems/index.ctp:118
 msgid "Next"
 msgstr "Seterusnya"
 
@@ -1295,22 +1332,22 @@ msgstr "Tempoh diblok"
 
 #: /views/tasks/additional.ctp:30;49
 #: /views/tasks/basic.ctp:32;51
-#: /views/tasks/imp.ctp:29;85
+#: /views/tasks/imp.ctp:29;68
 msgid "Skip"
 msgstr ""
 
-#: /views/tasks/additional.ctp:39
-#: /views/tasks/view.ctp:164
-msgid "Reference Number"
-msgstr "No. Rujukan"
-
-#: /views/tasks/additional.ctp:41
+#: /views/tasks/additional.ctp:40
 #: /views/tasks/view.ctp:237
 msgid "Task File"
 msgstr "Fail Tugas"
 
+#: /views/tasks/additional.ctp:41
+#: /views/tasks/view.ctp:164
+msgid "Reference Number"
+msgstr "No. Rujukan"
+
 #: /views/tasks/childtask.ctp:24;28
-#: /views/tasks/view.ctp:338;340
+#: /views/tasks/view.ctp:335;337
 msgid "Go to child task"
 msgstr "Pergi ke sub-tugas"
 
@@ -1326,14 +1363,6 @@ msgstr "Teruskan"
 #: /views/tasks/view.ctp:64
 msgid "Copy the task to other committee"
 msgstr "Salin tugas ke dalam sub-jawatankuasa lain"
-
-#: /views/tasks/imp.ctp:51;72
-msgid "Supervisor"
-msgstr ""
-
-#: /views/tasks/imp.ctp:61;75
-msgid "Desk Officer"
-msgstr ""
 
 #: /views/tasks/keyword.ctp:25
 msgid "Keyword Search"
@@ -1412,7 +1441,7 @@ msgstr "Aktif"
 msgid "Not active"
 msgstr "Tidak Aktif"
 
-#: /views/tasks/view.ctp:113;316
+#: /views/tasks/view.ctp:113;313
 msgid "No %s found"
 msgstr "Tiada %s ditemui"
 
@@ -1452,7 +1481,7 @@ msgstr "Maklumat Terperinci"
 msgid "Comment for this Task"
 msgstr "Komen Untuk Tugas Ini"
 
-#: /views/tasks/view.ctp:331
+#: /views/tasks/view.ctp:328
 msgid "Go to parent task"
 msgstr "Pergi ke tugas induk"
 
@@ -1679,14 +1708,12 @@ msgstr "Perubahan yang dibuat akan berkesan setelah anda log masuk semula. "
 msgid "This user has not been registered with any committee."
 msgstr "Pengguna ini belum didaftarkan di bawah mana-mana jawatankuasa"
 
-#: /views/users/view.ctp:35
-msgid "Committee Involved"
-msgstr "Jawatankuasa terlibat"
-
 #: /webroot/test.php:98
 msgid "Debug setting does not allow access to this url."
 msgstr "Capaian ke url ini tidak dibenarkan."
 
+#~ msgid "Group Involved"
+#~ msgstr "Kumpulan terlibat"
 #~ msgid "E-mail already exists"
 #~ msgstr "Emel ini telah wujud"
 #~ msgid "Go to the child task"

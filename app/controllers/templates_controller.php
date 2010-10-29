@@ -61,11 +61,19 @@ class TemplatesController extends AppController {
 
     //retrieve template
     function retrieve($group_name, $template_id=null){
+        $this->Task->recursive=-1;
+        $task=$this->Task->find('all',array('conditions'=>array('Task.group_id'=>$this->curgroup['Group']['id'])));
         if(empty($template_id)){
             $this->Template->duplicate(array('Template.model'=>'System'),'Group',$this->curgroup['Group']['id']);
+            foreach($task as $t){
+                $this->Template->duplicate(array('Template.model'=>'System'),'Task',$t['Task']['id']);
+            }
         }else{
             $old_template=$this->Template->find('first',array('conditions'=>array('Template.id'=>$template_id)));
             $this->Template->duplicate(array('Template.model'=>'System','Template.type'=>$old_template['Template']['type']),'Group',$this->curgroup['Group']['id']);
+            foreach($task as $t){
+                $this->Template->duplicate(array('Template.model'=>'System','Template.type'=>$old_template['Template']['type']),'Task',$t['Task']['id']);
+            }
         }
         $this->Session->setFlash(__('Template had been retrieved', true));
         $this->redirect(array('action'=>'index',$group_name));

@@ -29,7 +29,6 @@ class AppController extends Controller {
     function beforeFilter(){
         $this->Auth->allow(array('browser'));
         if($this->params['action']!='browser' && strpos($_SERVER['HTTP_USER_AGENT'],'IE 6')){
-           
             $this->redirect(array('controller'=>'users','action'=>'browser'));
         }
         
@@ -262,7 +261,6 @@ class AppController extends Controller {
         $this->Group->Membership->unbindmodel(array('belongsTo'=>array('User')));
         $groupmember=$this->Group->Membership->find('all',array('conditions'=>array('Membership.group_id'=>$group_id,'Membership.model'=>'Group2')));
         $group2_id=set::extract($groupmember,'{n}.Membership.foreign_key');
-     
      	//find group2 membership
 		$this->User->Group2sUser->unbindmodel(array('belongsTo'=>array('User')));
         $this->User->Group2sUser->bindmodel(array('belongsTo'=>array('Group2')));
@@ -349,7 +347,11 @@ class AppController extends Controller {
 	//not allow
 	function notallow($app=null){
 		if($app){
-			$this->Session->setFlash(__('You have entered the wrong url', true));
+            $this->Session->setFlash(__('You have entered the wrong url', true));
+            if(strpos(' '.$this->Session->read('lastvisitedpage'),'memberships/delete')){
+                $this->Session->setFlash(__('You have removed yourself from the committee membership list', true));
+            }
+			
         	$this->redirect(array('controller'=>'groups','action'=>'mainpage'));
 		}else{
 			return null;
@@ -365,6 +367,7 @@ class AppController extends Controller {
 
         $sql= file_get_contents($dfile);
         $a=0;
+        $sql=str_replace('CREATE TABLE IF NOT EXISTS `','CREATE TABLE IF NOT EXISTS `'.$prefix,$sql);
         while($b=strpos($sql,'CREATE TABLE',$a)){
             $a=strpos($sql,';',$b);
             $db->query(substr($sql,$b,$a-$b+1));
@@ -381,7 +384,14 @@ class AppController extends Controller {
             $content=substr_replace($content,$lang,strpos($content,"define('DEFAULT_LANGUAGE','")+27,3);
             $file->write($content);    
             $file->close();
+
+            
+            //Configure::write('Config.language', $this->lang)
+    
             Cache::clear();
+            if(DEFAULT_LANGUAGE!=$lang){
+                $this->changelanguage($lang);
+            }
         }
     }
     
@@ -403,5 +413,220 @@ class AppController extends Controller {
         
     }
     
+    //restore initial data function
+    function initial_data($model,$compulsory,$extra=array(),$replace=0){
+        $this->loadModel($model);
+        $this->{$model}->recursive=-1;
+        foreach($compulsory as $c=>$cdata){
+            $got=$this->{$model}->find('first',array('conditions'=>$cdata));
+            if(empty($got) || !empty($replace)){
+                
+                if(!empty($extra[$c])){
+                    $data=array_merge($cdata,$extra[$c]);
+                }else{
+                    $data=$cdata;
+                }
+                
+                if(empty($got)){
+                    $this->{$model}->create();
+                }else{
+                    $data['id']=$got[$model]['id'];
+                }
+                
+                $this->{$model}->save($data);
+            }
+        }
+    }
+    
+    //restore schemes initial data
+    function schemes_data(){
+        $this->initial_data(
+            'Scheme',
+            array(
+                array('name'=>'F'),
+                array('name'=>'L'),
+                array('name'=>'I'),
+                array('name'=>'J'),
+                array('name'=>'S'),
+                array('name'=>'E'),
+                array('name'=>'U'),
+                array('name'=>'N'),
+                array('name'=>'W'),
+                array('name'=>'KP'),
+                array('name'=>'KX'),
+                array('name'=>'KB'),
+                array('name'=>'A'),
+                array('name'=>'G'),
+                array('name'=>'C'),
+                array('name'=>'M'),
+                array('name'=>'LS'),
+                array('name'=>'P'),
+                array('name'=>'UD'),
+                array('name'=>'DG'),
+                array('name'=>'Q'),
+                array('name'=>'X')
+            )
+        );
+    }
+    
+    //restore titles initial data
+    function titles_data($replace=0){
+        
+        if(DEFAULT_LANGUAGE=='eng'){
+            $data=array(
+                array('long_name'=>'Y.Bhg Tan Sri'),
+                array('long_name'=>'Y.Bhg Datuk'),
+                array('long_name'=>"Y.Bhg Dato'"),
+                array('long_name'=>'Y.Brs Dr.'),
+                array('long_name'=>'Hj.'),
+                array('long_name'=>'Mr.'),
+                array('long_name'=>'Madam.'),
+                array('long_name'=>'Miss')
+            );
+        }else{
+            $data=array(
+                array('long_name'=>'Y.Bhg Tan Sri'),
+                array('long_name'=>'Y.Bhg Datuk'),
+                array('long_name'=>"Y.Bhg Dato'"),
+                array('long_name'=>'Y.Brs Dr.'),
+                array('long_name'=>'Hj.'),
+                array('long_name'=>'En.'),
+                array('long_name'=>'Pn.'),
+                array('long_name'=>'Cik')
+            );
+        }
+        
+        $this->initial_data('Title',$data,$replace);
+    }
+    
+    //restore roles initial data
+    function roles_data($replace=0){
+        
+        if(DEFAULT_LANGUAGE=='eng'){
+            $data=array(
+                array('name'=>'Head'),
+                array('name'=>'Supervisor'),
+                array('name'=>'Desk Officer'),
+                array('name'=>'Implementor')
+            );
+        }else{
+            $data=array(
+                array('name'=>'Ketua'),
+                array('name'=>'Supervisor'),
+                array('name'=>'Desk Officer'),
+                array('name'=>'Pelaksana')
+            );
+        }
+        
+        $this->initial_data(
+            'Role',
+            array(array('id'=>1),array('id'=>2),array('id'=>3),array('id'=>4)),
+            $data,
+            $replace
+        );
+    }
+        
+    //restore templates initial data
+    function restore_grades_data(){
+        $compulsory=array('KSN','Turus I','Turus II','Turus III','Jusa A','Jusa B','Jusa C','54','52','48','44','41','36','32','27','22','17','14','11','1');
+        $this->loadModel('Grade');
+        $this->Grade->recursive=-1;
+        $all=$this->Grade->find('all');
+        $all_grade=set::extract($all,'{n}.Grade.grade');
+        $all_rank=set::extract($all,'{n}.Grade.rank');
+        if(empty($all_rank)){
+            $max=0;
+        }else{
+            $max=max($all_rank);
+        }
+        foreach($compulsory as $c=>$cdata){
+            if(!in_array($cdata,$all_grade)){
+                $this->Grade->create();
+                $data['Grade']['grade']=$cdata;
+                $data['Grade']['rank']=++$max;
+                $this->Grade->save($data);
+            }
+        }
+    }
+    
+    //systemOnly template data
+    function SystemOnly_template($replace=0){
+        
+        if(DEFAULT_LANGUAGE=='eng'){
+            $data=array(
+                array('title'=>'New Account', 'description'=>'Email which be send to new system user', 'template'=>"<p>Dear %name,</p><p><strong><span style='text-decoration: underline;'>New Account<br /></span></strong></p><p>This is to inform you that there is a new account which had been created for you in Task Manager System. The login details are shown below:</p><p>Username: %username<br />Password: %newpassword</p><p>You are adviced to change the password immediately. Please login %Link.newaccount:here to update your profile.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>"),
+                array('title'=>'New Password', 'description'=>"Email which be send when a user's password had been reset", 'template'=>"<p>Dear %name,</p><p><strong><span style='text-decoration: underline;'>NEW PASSWORD<br /></span></strong></p><p>This is to inform you that your reset password request in Task Manager system had been processed. A new password had been made for you. The new password is %newpassword.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>"),
+                array('title'=>'Retrieve Username', 'description'=>'Email which be send when a user had forgotten username', 'template'=>"<p>Dear %name,</p><p><strong><span style='text-decoration: underline;'>RETRIEVE USERNAME<br /></span></strong></p><p>This is to inform you that your retrieve username request in Task Manager system had been processed.&nbsp; Your username is %username</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>")
+            );
+        }else{
+            $data=array(
+                array('title'=>'Akaun telah didaftarkan', 'description'=>'Emel yang dihantar kepada pengguna sistem yang baru didaftarkan', 'template'=>"<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style='text-decoration: underline;'>AKAUN ANDA TELAH DIDAFTARKAN<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Pentadbir sistem Task Manager telah mendaftarkan nama anda sebagai pengguna sistem. Maklumat log masuk anda adalah seperti berikut:</p><p>Kata nama: %username<br />Kata laluan: %newpassword</p><p>Anda dinasihatkan untuk menukar kata laluan anda. Sila log masuk di %Link.newaccount:sini untuk mengemaskini profail anda.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>"),
+                array('title'=>'Kata laluan baru', 'description'=>'Emel yang dihantar apabila kata laluan disetkan semula', 'template'=>"<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style='text-decoration: underline;'>KATA LALUAN BARU<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Satu permintaan telah dilakukan di Task Manager untuk set semula kata laluan tuan/puan. Oleh yang demikian, kata laluan baru telah dijana untuk kegunaan tuan/puan. Kata laluan baru tuan/puan ialah %newpassword.</p><p>Harap maklum.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>"),
+                array('title'=>'Dapatkan semula kata nama', 'description'=>'Emel yang dihantar apabila ahli terlupa kata nama', 'template'=>"<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style='text-decoration: underline;'>MENDAPATKAN SEMULA KATA NAMA<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Satu permintaan telah dilakukan di Task Manager untuk mendapatkan semula kata nama tuan/puan.&nbsp; Kata nama tuan/puan ialah %username</p><p>Harap maklum.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>")
+            );
+        }
+        
+        $this->initial_data(
+            'Template',
+            array(
+                array('model'=>'SystemOnly','foreign_key'=>'0','type'=>'new account'),
+                array('model'=>'SystemOnly','foreign_key'=>'0','type'=>'reset password'),
+                array('model'=>'SystemOnly','foreign_key'=>'0','type'=>'forgot username')
+            ),
+            $data,
+            $replace
+        );
+    }
+        
+    //system template data
+    function System_template($replace=0){
+        
+        if(DEFAULT_LANGUAGE=='eng'){
+            $data=array(
+                array('title'=>'Notification of Task Assignation', 'description'=>'Email which be send as notification of task assignation', 'template'=>"<p>Dear %name,</p><p><strong><span style='text-decoration: underline;'>NOTIFICATION OF TASK ASSIGNATION<br /></span></strong></p><p>This is to inform you that %you had been assigned as %Implementor.as for a task. The task is shown below:</p><p>================<br /> Task Name : %Task.task_name<br /> ================</p><p>More detail: %Link.task:here.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>"),
+                array('title'=>'Notification of Task Deassignation', 'description'=>'Email which be send as notification of task deassignation', 'template'=>"<p>Dear %name,</p><p><strong><span style='text-decoration: underline;'>NOTIFICATION OF TASK DEASSIGNATION<br /></span></strong></p><p>This is to inform you that %your name was removed from implementor list. In previous, you were assigned as %Implementor.as. The related task is shown below:</p><p>================<br /> Task Name : %Task.task_name<br />================</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>"),
+                array('title'=>'Notification of Change of Role', 'description'=>'Email which be send as notification of change of role', 'template'=>"<p>Dear %name,</p><p><strong><span style='text-decoration: underline;'>NOTIFICATION OF CHANGE OF ROLE<br /></span></strong></p><p>This is to inform you that %your role in task %Task.task_name had been changed from %oldImplementor.as to %Implementor.as. </p><p>&nbsp;</p><p>More detail: %Link.task:here.</p><p><b>%slogan</b></p><p>Thank you.</p>"),
+                array('title'=>'Notification of Task Cancellation', 'description'=>'Email which be send as notification of task cancellation', 'template'=>"<p>Dear %name,</p><p><strong><span style='text-decoration: underline;'>NOTIFICATION OF TASK CANCELLATION<br /></span></strong></p><p>This is to inform you that the task %Task.task_name had been cancelled.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>"),
+                array('title'=>'Task Comment', 'description'=>'Email which be send if there are comment on a task', 'template'=>"<p>Dear %name,</p><p><strong><span style='text-decoration: underline;'>NOTIFICATION OF COMMENT ON TASK<br /></span></strong></p><p>This is to inform you that %Comment.user had commented task %Task.task_name. The comment is shown below:</p><p>================<br /> %Comment.description<br /> ================</p><p>For more detail on the related task, please click %Link.task:here.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>"),
+                array('title'=>'Updating of Status', 'description'=>'Email which be send if there are a updating of status', 'template'=>"<p>Dear %name,</p><p><strong><span style='text-decoration: underline;'>NOTIFICATION OF UPDATING OF STATUS<br /></span></strong></p><p>This is to inform you that %Updater had updated %Status.user''s status for the task %Task.task_name. The status is shown below:</p><p>================<br /> %Status.description<br /> ================</p><p>More detail about the task: %Link.task:here.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>"),
+                array('title'=>'Reminder', 'description'=>'Email which be send as reminder', 'template'=>"<p>Dear %name,</p><p><strong><span style='text-decoration: underline;'>REMINDER OF TASK<br /></span></strong></p><p>This is to inform you that you had activated the reminder for the task %Task.task_name.</p><p>Note:</p><p>================<br /> %Reminder.note<br /> ================</p><p>Reminder Date:</p><p>================<br /> %Reminder.remind_date<br /> ================</p><p>More detail about the task: %Link.task:here.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Thank you.</p>")
+            );
+        }else{
+            $data=array(
+                array('title'=>'Makluman tentang penugasan', 'description'=>'Emel untuk dihantar apabila terdapat penugasan tugas', 'template'=>"<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style='text-decoration: underline;'>MAKLUMAN TENTANG PENUGASAN TUGAS<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Dalam tugas %Task.task_name, %you telah ditugaskan sebagai %Implementor.as <br /> ================</p><p>Maklumat yang lebih terperinci boleh dilihat di %Link.task:sini.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>"),
+                array('title'=>'Makluman tentang pembatalan pengagihan tugas', 'description'=>'Emel untuk dihantar apabila terdapat pembatalan pengagihan tugas', 'template'=>"<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style='text-decoration: underline;'>MAKLUMAN TENTANG PEMBATALAN PENGAGIHAN TUGAS<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Penugasan %you sebagai  %oldImplementor.as sebelum ini telah dibatalkan. Tugas tersebut adalah seperti berikut:</p><p>================<br /> Nama Tugasan : %Task.task_name<br />================</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>"),
+                array('title'=>'Makluman tentang penukaran peranan', 'description'=>'Emel untuk dihantar apabila terdapat penukaran peranan', 'template'=>"<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style='text-decoration: underline;'>MAKLUMAN TENTANG PENUKARAN PERANAN<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Peranan %you dalam tugas %Task.task_name telah ditukar daripada %oldImplementor.as kepada %Implementor.as.</p><p>Maklumat yang lebih terperinci boleh dilihat di %Link.task:sini.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>"),
+                array('title'=>'Makluman tentang pembatalan tugas', 'description'=>'Emel untuk dihantar apabila terdapat pembatalan tugas', 'template'=>"<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style='text-decoration: underline;'>MAKLUMAN TENTANG PEMBATALAN TUGAS<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Tugas %Task.task_name telah dibatalkan.</p><p><b>%slogan</b></p><p>Terima kasih.</p>"),
+                array('title'=>'Komen Tugas', 'description'=>'Emel yang dihantar jika terdapat komen yang ditinggalkan untuk tugas', 'template'=>"<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style='text-decoration: underline;'>MAKLUMAN TENTANG KOMEN YANG DITINGGALKAN UNTUK TUGAS<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. %Comment.user telah meninggalkan komen untuk tugas %Task.task_name. Komennya adalah seperti berikut:</p><p>================<br /> %Comment.description<br /> ================</p><p>Maklumat tugas boleh dilihat di %Link.task:sini.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>"),
+                array('title'=>'Pengemaskinian status', 'description'=>'Emel untuk dihantar apabila terdapat status yang dikemaskinikan', 'template'=>"<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style='text-decoration: underline;'>MAKLUMAN TENTANG PENGEMASKINIAN STATUS<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. %Updater telah mengemaskinikan status %Status.user untuk tugasan %Task.task_name. Statusnya adalah seperti berikut:</p><p>================<br /> %Status.description<br /> ================</p><p>Maklumat tugasan boleh dilihat di %Link.task:here.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>"),
+                array('title'=>'reminder', 'Peringatan', 'description'=>'Emel untuk dihantar sebagai peringatan', 'template'=>"<p>ASSALAMUALAIKUM DAN SALAM SEJAHTERA</p><p>%name,</p><p><strong><span style='text-decoration: underline;'>PERINGATAN TENTANG TUGAS<br /></span></strong></p><p>Dengan segala hormatnya merujuk perkara di atas.</p><p>2. Tuan/Puan telah mengaktifkan fungsi peringatan untuk tugasan %Task.task_name. </p><p>Catatan:</p><p>================<br /> %Reminder.note<br /> ================</p><p>Tarikh Peringatan:</p><p>================<br /> %Reminder.remind_date<br /> ================</p><p>Maklumat tugasan boleh dilihat di %Link.task:here.</p><p>&nbsp;</p><p><b>%slogan</b></p><p>Terima kasih.</p>")
+            );
+        }
+        
+        $this->initial_data(
+            'Template',
+            array(
+                array('model'=>'System','foreign_key'=>0,'type'=>'assign task'),
+                array('model'=>'System','foreign_key'=>0,'type'=>'deassign task'),
+                array('model'=>'System','foreign_key'=>0,'type'=>'change role'),
+                array('model'=>'System','foreign_key'=>0,'type'=>'delete task'),
+                array('model'=>'System','foreign_key'=>0,'type'=>'task comment'),
+                array('model'=>'System','foreign_key'=>0,'type'=>'update status'),
+                array('model'=>'System','foreign_key'=>0,'type'=>'reminder')
+            ),
+            $data,
+            $replace
+        );
+    }
+    
+    //install default data
+    function installData($replace=0){
+        $this->restore_grades_data();
+        $this->schemes_data();       
+        $this->titles_data($replace); 
+        $this->roles_data($replace);      
+        $this->System_template($replace);
+        $this->SystemOnly_template($replace);
+    }
 }
 ?>

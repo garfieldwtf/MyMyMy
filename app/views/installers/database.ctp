@@ -38,10 +38,9 @@
     </fieldset>
     <p>&nbsp;</p>
     <?php echo $form->button('Back', array('type'=>'button', 'onclick'=>'parent.location="dircheck"','class'=>'button'));?>&nbsp;
+    <?php echo $form->button('Submit',array('type'=>'submit'));?>
     <?php if (!empty($connected)):?>
         <?php echo $form->button('Next',array('type'=>'button','onclick'=>'parent.location="language"','class'=>'button')); ?>
-    <?php else:?>
-        <?php echo $form->button('Submit',array('type'=>'submit'));?>
     <?php endif;?>
     <?php echo $form->end();?>
 </div>
