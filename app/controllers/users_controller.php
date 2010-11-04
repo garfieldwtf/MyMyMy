@@ -157,10 +157,11 @@ class UsersController extends AppController {
     }
     
     function logout(){
+        $this->Session->delete('committee');
+        $this->Session->delete('task_id');
         $this->Auth->logout();
-        //$this->writelog(get_class($this),__FUNCTION__,"LOGGED OUT");
-        $this->Session->del('lastvisitedpage');
-        $this->Session->del('trylogin');
+        $this->Session->delete('lastvisitedpage');
+        $this->Session->delete('trylogin');
         $this->Session->SetFlash(__('Successfully logged out',true));
        
         $this->redirect(array('action'=>'login'));
