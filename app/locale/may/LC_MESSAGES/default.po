@@ -531,7 +531,7 @@ msgstr "Tajuk"
 #: /views/systems/index.ctp:62
 #: /views/templates/index.ctp:28
 msgid "Email Templates"
-msgstr "Templat-templat Email"
+msgstr "Templat-templat Emel"
 
 #: /views/elements/adminmenu.ctp:73;75
 msgid "Systems"
