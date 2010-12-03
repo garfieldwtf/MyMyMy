@@ -67,7 +67,7 @@ class MembershipsController extends AppController {
 		}
         
         $member=set::extract($this->Membership->find('all',array('conditions'=>array('Membership.group_id'=>$this->curgroup['Group']['id'],'Membership.model'=>$type))),'{n}.Membership.foreign_key');
-		$users = $this->Membership->$type->find('list',array('conditions'=>array('not'=>array($type.'.id'=>$member))));
+		$users = $this->Membership->$type->find('list',array('conditions'=>array('not'=>array($type.'.id'=>$member)),'order'=>'name ASC'));
 		$this->set(compact('users'));
         $this->set('type', $type);
 	}

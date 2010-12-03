@@ -194,7 +194,7 @@ class SystemsController extends AppController {
     
     function _fixupdatabase(){
         $file=$this->createTables();
-        debug($file);
+        
         App::import('ConnectionManager');
         $db= ConnectionManager :: getDataSource('default');
         
